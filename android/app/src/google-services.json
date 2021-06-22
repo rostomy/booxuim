@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "708082196011",
+    "firebase_url": "https://booxium-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "booxium",
+    "storage_bucket": "booxium.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708082196011:android:1223029fd6d9c5c030d46e",
+        "android_client_info": {
+          "package_name": "com.example.booxuim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708082196011-qg3a1emt8mcn31l6tj2lpkprvqqcj76p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGRrNDapfu9k5LLnc2pU1xZOFlN52ypAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708082196011-59gse94f3nq61v20k87karrd938h2kn7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
