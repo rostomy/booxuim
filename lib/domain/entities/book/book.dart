@@ -7,7 +7,7 @@ part 'book.g.dart';
 abstract class Book with _$Book {
   const factory Book({
     //String languages,
-    //  String cover_pic_isbndb,
+    String cover_pic_isbndb,
     String title,
     String searchableTitle,
     String isbn,
@@ -35,6 +35,9 @@ abstract class Book with _$Book {
     int total_in_library,
     int total_proposed,
     double publisher_price,
+    bool is_liked,
+    bool is_read,
+    bool is_to_read,
     String type,
     String subtype1,
     String subtype2,

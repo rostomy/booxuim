@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:booxuim/domain/book/i_book_facade.dart';
 import 'package:booxuim/domain/core/failures.dart';
+import 'package:booxuim/domain/entities/levels/levels.dart';
 import 'package:booxuim/domain/entities/library/library.dart';
 import 'package:booxuim/domain/entities/salon_book/salon_book.dart';
+import 'package:booxuim/domain/entities/univ_domains/univ_domains.dart';
 import 'package:booxuim/infrastructure/book/book.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,7 +25,52 @@ class BookBloc extends Bloc<BookEvent, BookState> {
   Stream<BookState> mapEventToState(
     BookEvent event,
   ) async* {
-    yield* event.map(findBookInLibrary: (e) async* {
+    yield* event.map(getSchoolBooks: (e) async* {
+      yield* _performGetSchoolBooks(
+        e.token,
+        e.level,
+        e.year,
+        e.title,
+        e.wilaya,
+        bookFacde.getSchoolBooks,
+      );
+    }, getUnivBookss: (e) async* {
+      yield* _performGetUnivBooks(
+        e.token,
+        e.title,
+        e.domain,
+        e.language,
+        e.filiere,
+        bookFacde.getUnivBooks,
+      );
+    }, pickOrder: (e) async* {
+      yield* _performPickOrderActionFacade(
+        e.token,
+        e.body,
+        bookFacde.pickOrder,
+      );
+    }, deliverPanier: (e) async* {
+      yield* _performdeliverPanier(
+        e.token,
+        e.body,
+        bookFacde.deliverPanier,
+      );
+    }, sendMoment: (e) async* {
+      yield* _performSendMoment(
+        e.token,
+        e.id,
+        e.reviews,
+        e.filePath,
+        bookFacde.sendMoment,
+      );
+    }, requestPrice: (e) async* {
+      yield* _performRequestPriceActionFacade(
+          e.token, e.body, bookFacde.priceRequest);
+    }, unRefrencedRequest: (e) async* {
+      yield* _performUnRefrencedRequestActionFacade(
+          e.token, e.body, bookFacde.unRefrencedRequest);
+    }, findBookInLibrary: (e) async* {
+      print(e.id);
       yield* _performFindBookInLibraryActionFacade(
           e.token, e.id, bookFacde.findBookinLibrary);
     }, getBookById: (e) async* {
@@ -46,6 +93,15 @@ class BookBloc extends Bloc<BookEvent, BookState> {
     }, getPrivateRequests: (e) async* {
       yield* _performGetPrivateRequestsActionFacade(
           e.token, bookFacde.getPrivateRequest);
+    }, rateBook: (e) async* {
+      Map<String, dynamic> rating = {'rating': e.rating};
+
+      yield* _performRateBookActionFacade(
+        e.id,
+        e.token,
+        rating,
+        bookFacde.rateBook,
+      );
     }, getOrders: (e) async* {
       yield* _performGetOrderActionFacade(e.token, bookFacde.getOrders);
     }, reviewBook: (e) async* {
@@ -56,6 +112,28 @@ class BookBloc extends Bloc<BookEvent, BookState> {
         bookFacde.reviewBook,
       );
     });
+  }
+
+  Stream<BookState> _performPickOrderActionFacade(
+    String token,
+    Map<String, dynamic> body,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      Map<String, dynamic> body,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+
+    yield state.copyWith(
+      pickOrderFailureOrSuccessOption: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(token: token, body: body);
+
+    yield state.copyWith(
+      pickOrderFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
   }
 
   Stream<BookState> _performGetBookByIdActionFacade(
@@ -112,7 +190,7 @@ class BookBloc extends Bloc<BookEvent, BookState> {
       findBookInLibraryFailureOrSuccess: none(),
     );
 
-    failureOrSuccess = await forwardedCall(token: token);
+    failureOrSuccess = await forwardedCall(token: token, id: id);
 
     yield state.copyWith(
       findBookInLibraryFailureOrSuccess: optionOf(failureOrSuccess),
@@ -158,6 +236,48 @@ class BookBloc extends Bloc<BookEvent, BookState> {
 
     yield state.copyWith(
       addToPanierFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performUnRefrencedRequestActionFacade(
+    String token,
+    Map<String, dynamic> body,
+    Future<Either<ServerFailure, String>> Function({
+      @required String token,
+      @required Map<String, dynamic> body,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, String> failureOrSuccess;
+    yield state.copyWith(
+      unRefrencedRequestFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(token: token, body: body);
+
+    yield state.copyWith(
+      unRefrencedRequestFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performRequestPriceActionFacade(
+    String token,
+    Map<String, dynamic> body,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      @required Map<String, dynamic> body,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+    yield state.copyWith(
+      requestPriceFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(token: token, body: body);
+
+    yield state.copyWith(
+      requestPriceFailureOrSuccess: optionOf(failureOrSuccess),
     );
   }
 
@@ -247,6 +367,68 @@ class BookBloc extends Bloc<BookEvent, BookState> {
     );
   }
 
+  Stream<BookState> _performGetSchoolBooks(
+    String token,
+    String level,
+    String year,
+    String title,
+    String wilaya,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      @required String level,
+      @required String year,
+      @required String title,
+      @required String wilaya,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+
+    yield state.copyWith(
+      getSchoolBooksFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(
+        token: token, level: level, year: year, title: title, wilaya: wilaya);
+
+    yield state.copyWith(
+      getSchoolBooksFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performGetUnivBooks(
+    String token,
+    String title,
+    String domain,
+    String language,
+    String filiere,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      @required String title,
+      @required String domain,
+      @required String language,
+      @required String filiere,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+
+    yield state.copyWith(
+      getUnivBooksFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(
+        token: token,
+        title: title,
+        domain: domain,
+        filiere: filiere,
+        language: language);
+
+    yield state.copyWith(
+      getUnivBooksFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
   Stream<BookState> _performReviewBookActionFacade(
     String id,
     Map<String, dynamic> reviews,
@@ -272,6 +454,85 @@ class BookBloc extends Bloc<BookEvent, BookState> {
 
     yield state.copyWith(
       reviewBookFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performRateBookActionFacade(
+    String id,
+    String token,
+    Map<String, dynamic> rating,
+    Future<Either<ServerFailure, String>> Function({
+      @required String id,
+      @required String token,
+      @required Map<String, dynamic> rating,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, String> failureOrSuccess;
+    yield state.copyWith(
+      rateBookFailureOrSuccessOption: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(
+      id: id,
+      token: token,
+      rating: rating,
+    );
+
+    yield state.copyWith(
+      rateBookFailureOrSuccessOption: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performSendMoment(
+    String token,
+    String id,
+    Map<String, dynamic> reviews,
+    String filePath,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      String id,
+      Map<String, dynamic> reviews,
+      String filePath,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+
+    yield state.copyWith(
+      sendMomentFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(
+        token: token, reviews: reviews, filePath: filePath, id: id);
+
+    yield state.copyWith(
+      sendMomentFailureOrSuccess: optionOf(failureOrSuccess),
+    );
+  }
+
+  Stream<BookState> _performdeliverPanier(
+    String token,
+    Map<String, dynamic> body,
+    Future<Either<ServerFailure, Map<String, dynamic>>> Function({
+      @required String token,
+      @required Map<String, dynamic> body,
+    })
+        forwardedCall,
+  ) async* {
+    Either<ServerFailure, Map<String, dynamic>> failureOrSuccess;
+
+    yield state.copyWith(
+      deliverPanierFailureOrSuccess: none(),
+    );
+
+    failureOrSuccess = await forwardedCall(
+      token: token,
+      body: body,
+    );
+
+    yield state.copyWith(
+      deliverPanierFailureOrSuccess: optionOf(failureOrSuccess),
     );
   }
 }

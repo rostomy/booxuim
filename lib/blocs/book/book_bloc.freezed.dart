@@ -63,6 +63,23 @@ class _$BookEventTearOff {
   }
 
 // ignore: unused_element
+  UnRefrencedRequest unRefrencedRequest(
+      String token, Map<String, dynamic> body) {
+    return UnRefrencedRequest(
+      token,
+      body,
+    );
+  }
+
+// ignore: unused_element
+  RequestPrice requestPrice(String token, Map<String, dynamic> body) {
+    return RequestPrice(
+      token,
+      body,
+    );
+  }
+
+// ignore: unused_element
   GetBookByCategory getBookByCategory(String token, String category) {
     return GetBookByCategory(
       token,
@@ -73,6 +90,33 @@ class _$BookEventTearOff {
 // ignore: unused_element
   GetPrivateRequests getPrivateRequests(String token) {
     return GetPrivateRequests(
+      token,
+    );
+  }
+
+// ignore: unused_element
+  SendMoment sendMoment(
+      String token, Map<String, dynamic> reviews, String filePath, String id) {
+    return SendMoment(
+      token,
+      reviews,
+      filePath,
+      id,
+    );
+  }
+
+// ignore: unused_element
+  DeliverPanier deliverPanier(String token, Map<String, dynamic> body) {
+    return DeliverPanier(
+      token,
+      body,
+    );
+  }
+
+// ignore: unused_element
+  PickOrder pickOrder(Map<String, dynamic> body, String token) {
+    return PickOrder(
+      body,
       token,
     );
   }
@@ -89,6 +133,39 @@ class _$BookEventTearOff {
     return FindBookInLibrary(
       token,
       id,
+    );
+  }
+
+// ignore: unused_element
+  GetUnivBooks getUnivBookss(String token, String title, String language,
+      String domain, String filiere) {
+    return GetUnivBooks(
+      token,
+      title,
+      language,
+      domain,
+      filiere,
+    );
+  }
+
+// ignore: unused_element
+  GetSchoolBooks getSchoolBooks(
+      String token, String title, String year, String level, String wilaya) {
+    return GetSchoolBooks(
+      token,
+      title,
+      year,
+      level,
+      wilaya,
+    );
+  }
+
+// ignore: unused_element
+  RateBook rateBook(String id, String token, int rating) {
+    return RateBook(
+      id,
+      token,
+      rating,
     );
   }
 }
@@ -112,10 +189,25 @@ mixin _$BookEvent {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -125,10 +217,21 @@ mixin _$BookEvent {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -139,10 +242,18 @@ mixin _$BookEvent {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -152,10 +263,18 @@ mixin _$BookEvent {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   });
 
@@ -268,10 +387,25 @@ class _$GetBookById implements GetBookById {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -279,10 +413,18 @@ class _$GetBookById implements GetBookById {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBookById(token, id);
   }
 
@@ -295,10 +437,21 @@ class _$GetBookById implements GetBookById {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -317,10 +470,18 @@ class _$GetBookById implements GetBookById {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -328,10 +489,18 @@ class _$GetBookById implements GetBookById {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBookById(this);
   }
 
@@ -344,10 +513,18 @@ class _$GetBookById implements GetBookById {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -437,10 +614,25 @@ class _$GetBooks implements GetBooks {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -448,10 +640,18 @@ class _$GetBooks implements GetBooks {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBooks(token);
   }
 
@@ -464,10 +664,21 @@ class _$GetBooks implements GetBooks {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -486,10 +697,18 @@ class _$GetBooks implements GetBooks {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -497,10 +716,18 @@ class _$GetBooks implements GetBooks {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBooks(this);
   }
 
@@ -513,10 +740,18 @@ class _$GetBooks implements GetBooks {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -618,10 +853,25 @@ class _$GetSalonBooks implements GetSalonBooks {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -629,10 +879,18 @@ class _$GetSalonBooks implements GetSalonBooks {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getSalonBooks(token, page);
   }
 
@@ -645,10 +903,21 @@ class _$GetSalonBooks implements GetSalonBooks {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -667,10 +936,18 @@ class _$GetSalonBooks implements GetSalonBooks {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -678,10 +955,18 @@ class _$GetSalonBooks implements GetSalonBooks {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getSalonBooks(this);
   }
 
@@ -694,10 +979,18 @@ class _$GetSalonBooks implements GetSalonBooks {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -805,10 +1098,25 @@ class _$ReactBook implements ReactBook {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -816,10 +1124,18 @@ class _$ReactBook implements ReactBook {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return reactBook(token, id, body);
   }
 
@@ -832,10 +1148,21 @@ class _$ReactBook implements ReactBook {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -854,10 +1181,18 @@ class _$ReactBook implements ReactBook {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -865,10 +1200,18 @@ class _$ReactBook implements ReactBook {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return reactBook(this);
   }
 
@@ -881,10 +1224,18 @@ class _$ReactBook implements ReactBook {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -996,10 +1347,25 @@ class _$ReviewBook implements ReviewBook {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1007,10 +1373,18 @@ class _$ReviewBook implements ReviewBook {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return reviewBook(id, reviews, token);
   }
 
@@ -1023,10 +1397,21 @@ class _$ReviewBook implements ReviewBook {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1045,10 +1430,18 @@ class _$ReviewBook implements ReviewBook {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1056,10 +1449,18 @@ class _$ReviewBook implements ReviewBook {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return reviewBook(this);
   }
 
@@ -1072,10 +1473,18 @@ class _$ReviewBook implements ReviewBook {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1179,10 +1588,25 @@ class _$AddToPanier implements AddToPanier {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1190,10 +1614,18 @@ class _$AddToPanier implements AddToPanier {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return addToPanier(token, panier);
   }
 
@@ -1206,10 +1638,21 @@ class _$AddToPanier implements AddToPanier {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1228,10 +1671,18 @@ class _$AddToPanier implements AddToPanier {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1239,10 +1690,18 @@ class _$AddToPanier implements AddToPanier {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return addToPanier(this);
   }
 
@@ -1255,10 +1714,18 @@ class _$AddToPanier implements AddToPanier {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1279,6 +1746,488 @@ abstract class AddToPanier implements BookEvent {
   @override
   @JsonKey(ignore: true)
   $AddToPanierCopyWith<AddToPanier> get copyWith;
+}
+
+/// @nodoc
+abstract class $UnRefrencedRequestCopyWith<$Res>
+    implements $BookEventCopyWith<$Res> {
+  factory $UnRefrencedRequestCopyWith(
+          UnRefrencedRequest value, $Res Function(UnRefrencedRequest) then) =
+      _$UnRefrencedRequestCopyWithImpl<$Res>;
+  @override
+  $Res call({String token, Map<String, dynamic> body});
+}
+
+/// @nodoc
+class _$UnRefrencedRequestCopyWithImpl<$Res>
+    extends _$BookEventCopyWithImpl<$Res>
+    implements $UnRefrencedRequestCopyWith<$Res> {
+  _$UnRefrencedRequestCopyWithImpl(
+      UnRefrencedRequest _value, $Res Function(UnRefrencedRequest) _then)
+      : super(_value, (v) => _then(v as UnRefrencedRequest));
+
+  @override
+  UnRefrencedRequest get _value => super._value as UnRefrencedRequest;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object body = freezed,
+  }) {
+    return _then(UnRefrencedRequest(
+      token == freezed ? _value.token : token as String,
+      body == freezed ? _value.body : body as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UnRefrencedRequest implements UnRefrencedRequest {
+  const _$UnRefrencedRequest(this.token, this.body)
+      : assert(token != null),
+        assert(body != null);
+
+  @override
+  final String token;
+  @override
+  final Map<String, dynamic> body;
+
+  @override
+  String toString() {
+    return 'BookEvent.unRefrencedRequest(token: $token, body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UnRefrencedRequest &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(body);
+
+  @JsonKey(ignore: true)
+  @override
+  $UnRefrencedRequestCopyWith<UnRefrencedRequest> get copyWith =>
+      _$UnRefrencedRequestCopyWithImpl<UnRefrencedRequest>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return unRefrencedRequest(token, body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unRefrencedRequest != null) {
+      return unRefrencedRequest(token, body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return unRefrencedRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (unRefrencedRequest != null) {
+      return unRefrencedRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnRefrencedRequest implements BookEvent {
+  const factory UnRefrencedRequest(String token, Map<String, dynamic> body) =
+      _$UnRefrencedRequest;
+
+  @override
+  String get token;
+  Map<String, dynamic> get body;
+  @override
+  @JsonKey(ignore: true)
+  $UnRefrencedRequestCopyWith<UnRefrencedRequest> get copyWith;
+}
+
+/// @nodoc
+abstract class $RequestPriceCopyWith<$Res> implements $BookEventCopyWith<$Res> {
+  factory $RequestPriceCopyWith(
+          RequestPrice value, $Res Function(RequestPrice) then) =
+      _$RequestPriceCopyWithImpl<$Res>;
+  @override
+  $Res call({String token, Map<String, dynamic> body});
+}
+
+/// @nodoc
+class _$RequestPriceCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $RequestPriceCopyWith<$Res> {
+  _$RequestPriceCopyWithImpl(
+      RequestPrice _value, $Res Function(RequestPrice) _then)
+      : super(_value, (v) => _then(v as RequestPrice));
+
+  @override
+  RequestPrice get _value => super._value as RequestPrice;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object body = freezed,
+  }) {
+    return _then(RequestPrice(
+      token == freezed ? _value.token : token as String,
+      body == freezed ? _value.body : body as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$RequestPrice implements RequestPrice {
+  const _$RequestPrice(this.token, this.body)
+      : assert(token != null),
+        assert(body != null);
+
+  @override
+  final String token;
+  @override
+  final Map<String, dynamic> body;
+
+  @override
+  String toString() {
+    return 'BookEvent.requestPrice(token: $token, body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is RequestPrice &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(body);
+
+  @JsonKey(ignore: true)
+  @override
+  $RequestPriceCopyWith<RequestPrice> get copyWith =>
+      _$RequestPriceCopyWithImpl<RequestPrice>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return requestPrice(token, body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (requestPrice != null) {
+      return requestPrice(token, body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return requestPrice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (requestPrice != null) {
+      return requestPrice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RequestPrice implements BookEvent {
+  const factory RequestPrice(String token, Map<String, dynamic> body) =
+      _$RequestPrice;
+
+  @override
+  String get token;
+  Map<String, dynamic> get body;
+  @override
+  @JsonKey(ignore: true)
+  $RequestPriceCopyWith<RequestPrice> get copyWith;
 }
 
 /// @nodoc
@@ -1364,10 +2313,25 @@ class _$GetBookByCategory implements GetBookByCategory {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1375,10 +2339,18 @@ class _$GetBookByCategory implements GetBookByCategory {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBookByCategory(token, category);
   }
 
@@ -1391,10 +2363,21 @@ class _$GetBookByCategory implements GetBookByCategory {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1413,10 +2396,18 @@ class _$GetBookByCategory implements GetBookByCategory {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1424,10 +2415,18 @@ class _$GetBookByCategory implements GetBookByCategory {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getBookByCategory(this);
   }
 
@@ -1440,10 +2439,18 @@ class _$GetBookByCategory implements GetBookByCategory {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1538,10 +2545,25 @@ class _$GetPrivateRequests implements GetPrivateRequests {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1549,10 +2571,18 @@ class _$GetPrivateRequests implements GetPrivateRequests {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getPrivateRequests(token);
   }
 
@@ -1565,10 +2595,21 @@ class _$GetPrivateRequests implements GetPrivateRequests {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1587,10 +2628,18 @@ class _$GetPrivateRequests implements GetPrivateRequests {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1598,10 +2647,18 @@ class _$GetPrivateRequests implements GetPrivateRequests {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getPrivateRequests(this);
   }
 
@@ -1614,10 +2671,18 @@ class _$GetPrivateRequests implements GetPrivateRequests {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1636,6 +2701,745 @@ abstract class GetPrivateRequests implements BookEvent {
   @override
   @JsonKey(ignore: true)
   $GetPrivateRequestsCopyWith<GetPrivateRequests> get copyWith;
+}
+
+/// @nodoc
+abstract class $SendMomentCopyWith<$Res> implements $BookEventCopyWith<$Res> {
+  factory $SendMomentCopyWith(
+          SendMoment value, $Res Function(SendMoment) then) =
+      _$SendMomentCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String token, Map<String, dynamic> reviews, String filePath, String id});
+}
+
+/// @nodoc
+class _$SendMomentCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $SendMomentCopyWith<$Res> {
+  _$SendMomentCopyWithImpl(SendMoment _value, $Res Function(SendMoment) _then)
+      : super(_value, (v) => _then(v as SendMoment));
+
+  @override
+  SendMoment get _value => super._value as SendMoment;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object reviews = freezed,
+    Object filePath = freezed,
+    Object id = freezed,
+  }) {
+    return _then(SendMoment(
+      token == freezed ? _value.token : token as String,
+      reviews == freezed ? _value.reviews : reviews as Map<String, dynamic>,
+      filePath == freezed ? _value.filePath : filePath as String,
+      id == freezed ? _value.id : id as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SendMoment implements SendMoment {
+  const _$SendMoment(this.token, this.reviews, this.filePath, this.id)
+      : assert(token != null),
+        assert(reviews != null),
+        assert(filePath != null),
+        assert(id != null);
+
+  @override
+  final String token;
+  @override
+  final Map<String, dynamic> reviews;
+  @override
+  final String filePath;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'BookEvent.sendMoment(token: $token, reviews: $reviews, filePath: $filePath, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SendMoment &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.reviews, reviews) ||
+                const DeepCollectionEquality()
+                    .equals(other.reviews, reviews)) &&
+            (identical(other.filePath, filePath) ||
+                const DeepCollectionEquality()
+                    .equals(other.filePath, filePath)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(reviews) ^
+      const DeepCollectionEquality().hash(filePath) ^
+      const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  $SendMomentCopyWith<SendMoment> get copyWith =>
+      _$SendMomentCopyWithImpl<SendMoment>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return sendMoment(token, reviews, filePath, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendMoment != null) {
+      return sendMoment(token, reviews, filePath, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return sendMoment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendMoment != null) {
+      return sendMoment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendMoment implements BookEvent {
+  const factory SendMoment(String token, Map<String, dynamic> reviews,
+      String filePath, String id) = _$SendMoment;
+
+  @override
+  String get token;
+  Map<String, dynamic> get reviews;
+  String get filePath;
+  String get id;
+  @override
+  @JsonKey(ignore: true)
+  $SendMomentCopyWith<SendMoment> get copyWith;
+}
+
+/// @nodoc
+abstract class $DeliverPanierCopyWith<$Res>
+    implements $BookEventCopyWith<$Res> {
+  factory $DeliverPanierCopyWith(
+          DeliverPanier value, $Res Function(DeliverPanier) then) =
+      _$DeliverPanierCopyWithImpl<$Res>;
+  @override
+  $Res call({String token, Map<String, dynamic> body});
+}
+
+/// @nodoc
+class _$DeliverPanierCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $DeliverPanierCopyWith<$Res> {
+  _$DeliverPanierCopyWithImpl(
+      DeliverPanier _value, $Res Function(DeliverPanier) _then)
+      : super(_value, (v) => _then(v as DeliverPanier));
+
+  @override
+  DeliverPanier get _value => super._value as DeliverPanier;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object body = freezed,
+  }) {
+    return _then(DeliverPanier(
+      token == freezed ? _value.token : token as String,
+      body == freezed ? _value.body : body as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$DeliverPanier implements DeliverPanier {
+  const _$DeliverPanier(this.token, this.body)
+      : assert(token != null),
+        assert(body != null);
+
+  @override
+  final String token;
+  @override
+  final Map<String, dynamic> body;
+
+  @override
+  String toString() {
+    return 'BookEvent.deliverPanier(token: $token, body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is DeliverPanier &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(body);
+
+  @JsonKey(ignore: true)
+  @override
+  $DeliverPanierCopyWith<DeliverPanier> get copyWith =>
+      _$DeliverPanierCopyWithImpl<DeliverPanier>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return deliverPanier(token, body);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deliverPanier != null) {
+      return deliverPanier(token, body);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return deliverPanier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deliverPanier != null) {
+      return deliverPanier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeliverPanier implements BookEvent {
+  const factory DeliverPanier(String token, Map<String, dynamic> body) =
+      _$DeliverPanier;
+
+  @override
+  String get token;
+  Map<String, dynamic> get body;
+  @override
+  @JsonKey(ignore: true)
+  $DeliverPanierCopyWith<DeliverPanier> get copyWith;
+}
+
+/// @nodoc
+abstract class $PickOrderCopyWith<$Res> implements $BookEventCopyWith<$Res> {
+  factory $PickOrderCopyWith(PickOrder value, $Res Function(PickOrder) then) =
+      _$PickOrderCopyWithImpl<$Res>;
+  @override
+  $Res call({Map<String, dynamic> body, String token});
+}
+
+/// @nodoc
+class _$PickOrderCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $PickOrderCopyWith<$Res> {
+  _$PickOrderCopyWithImpl(PickOrder _value, $Res Function(PickOrder) _then)
+      : super(_value, (v) => _then(v as PickOrder));
+
+  @override
+  PickOrder get _value => super._value as PickOrder;
+
+  @override
+  $Res call({
+    Object body = freezed,
+    Object token = freezed,
+  }) {
+    return _then(PickOrder(
+      body == freezed ? _value.body : body as Map<String, dynamic>,
+      token == freezed ? _value.token : token as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$PickOrder implements PickOrder {
+  const _$PickOrder(this.body, this.token)
+      : assert(body != null),
+        assert(token != null);
+
+  @override
+  final Map<String, dynamic> body;
+  @override
+  final String token;
+
+  @override
+  String toString() {
+    return 'BookEvent.pickOrder(body: $body, token: $token)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PickOrder &&
+            (identical(other.body, body) ||
+                const DeepCollectionEquality().equals(other.body, body)) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(token);
+
+  @JsonKey(ignore: true)
+  @override
+  $PickOrderCopyWith<PickOrder> get copyWith =>
+      _$PickOrderCopyWithImpl<PickOrder>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return pickOrder(body, token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (pickOrder != null) {
+      return pickOrder(body, token);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return pickOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (pickOrder != null) {
+      return pickOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickOrder implements BookEvent {
+  const factory PickOrder(Map<String, dynamic> body, String token) =
+      _$PickOrder;
+
+  Map<String, dynamic> get body;
+  @override
+  String get token;
+  @override
+  @JsonKey(ignore: true)
+  $PickOrderCopyWith<PickOrder> get copyWith;
 }
 
 /// @nodoc
@@ -1706,10 +3510,25 @@ class _$GetOrders implements GetOrders {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1717,10 +3536,18 @@ class _$GetOrders implements GetOrders {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getOrders(token);
   }
 
@@ -1733,10 +3560,21 @@ class _$GetOrders implements GetOrders {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1755,10 +3593,18 @@ class _$GetOrders implements GetOrders {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1766,10 +3612,18 @@ class _$GetOrders implements GetOrders {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return getOrders(this);
   }
 
@@ -1782,10 +3636,18 @@ class _$GetOrders implements GetOrders {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1888,10 +3750,25 @@ class _$FindBookInLibrary implements FindBookInLibrary {
         TResult reviewBook(
             String id, Map<String, dynamic> reviews, String token),
     @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
     @required TResult getBookByCategory(String token, String category),
     @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
     @required TResult getOrders(String token),
     @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1899,10 +3776,18 @@ class _$FindBookInLibrary implements FindBookInLibrary {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return findBookInLibrary(token, id);
   }
 
@@ -1915,10 +3800,21 @@ class _$FindBookInLibrary implements FindBookInLibrary {
     TResult reactBook(String token, String id, Map<String, dynamic> body),
     TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
     TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
     TResult getBookByCategory(String token, String category),
     TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
     TResult getOrders(String token),
     TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1937,10 +3833,18 @@ class _$FindBookInLibrary implements FindBookInLibrary {
     @required TResult reactBook(ReactBook value),
     @required TResult reviewBook(ReviewBook value),
     @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
     @required TResult getBookByCategory(GetBookByCategory value),
     @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
     @required TResult getOrders(GetOrders value),
     @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
   }) {
     assert(getBookById != null);
     assert(getBooks != null);
@@ -1948,10 +3852,18 @@ class _$FindBookInLibrary implements FindBookInLibrary {
     assert(reactBook != null);
     assert(reviewBook != null);
     assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
     assert(getBookByCategory != null);
     assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
     assert(getOrders != null);
     assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
     return findBookInLibrary(this);
   }
 
@@ -1964,10 +3876,18 @@ class _$FindBookInLibrary implements FindBookInLibrary {
     TResult reactBook(ReactBook value),
     TResult reviewBook(ReviewBook value),
     TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
     TResult getBookByCategory(GetBookByCategory value),
     TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
     TResult getOrders(GetOrders value),
     TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1988,6 +3908,796 @@ abstract class FindBookInLibrary implements BookEvent {
   @override
   @JsonKey(ignore: true)
   $FindBookInLibraryCopyWith<FindBookInLibrary> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetUnivBooksCopyWith<$Res> implements $BookEventCopyWith<$Res> {
+  factory $GetUnivBooksCopyWith(
+          GetUnivBooks value, $Res Function(GetUnivBooks) then) =
+      _$GetUnivBooksCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String token,
+      String title,
+      String language,
+      String domain,
+      String filiere});
+}
+
+/// @nodoc
+class _$GetUnivBooksCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $GetUnivBooksCopyWith<$Res> {
+  _$GetUnivBooksCopyWithImpl(
+      GetUnivBooks _value, $Res Function(GetUnivBooks) _then)
+      : super(_value, (v) => _then(v as GetUnivBooks));
+
+  @override
+  GetUnivBooks get _value => super._value as GetUnivBooks;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object title = freezed,
+    Object language = freezed,
+    Object domain = freezed,
+    Object filiere = freezed,
+  }) {
+    return _then(GetUnivBooks(
+      token == freezed ? _value.token : token as String,
+      title == freezed ? _value.title : title as String,
+      language == freezed ? _value.language : language as String,
+      domain == freezed ? _value.domain : domain as String,
+      filiere == freezed ? _value.filiere : filiere as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetUnivBooks implements GetUnivBooks {
+  const _$GetUnivBooks(
+      this.token, this.title, this.language, this.domain, this.filiere)
+      : assert(token != null),
+        assert(title != null),
+        assert(language != null),
+        assert(domain != null),
+        assert(filiere != null);
+
+  @override
+  final String token;
+  @override
+  final String title;
+  @override
+  final String language;
+  @override
+  final String domain;
+  @override
+  final String filiere;
+
+  @override
+  String toString() {
+    return 'BookEvent.getUnivBookss(token: $token, title: $title, language: $language, domain: $domain, filiere: $filiere)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUnivBooks &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.language, language) ||
+                const DeepCollectionEquality()
+                    .equals(other.language, language)) &&
+            (identical(other.domain, domain) ||
+                const DeepCollectionEquality().equals(other.domain, domain)) &&
+            (identical(other.filiere, filiere) ||
+                const DeepCollectionEquality().equals(other.filiere, filiere)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(language) ^
+      const DeepCollectionEquality().hash(domain) ^
+      const DeepCollectionEquality().hash(filiere);
+
+  @JsonKey(ignore: true)
+  @override
+  $GetUnivBooksCopyWith<GetUnivBooks> get copyWith =>
+      _$GetUnivBooksCopyWithImpl<GetUnivBooks>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return getUnivBookss(token, title, language, domain, filiere);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (getUnivBookss != null) {
+      return getUnivBookss(token, title, language, domain, filiere);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return getUnivBookss(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (getUnivBookss != null) {
+      return getUnivBookss(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUnivBooks implements BookEvent {
+  const factory GetUnivBooks(String token, String title, String language,
+      String domain, String filiere) = _$GetUnivBooks;
+
+  @override
+  String get token;
+  String get title;
+  String get language;
+  String get domain;
+  String get filiere;
+  @override
+  @JsonKey(ignore: true)
+  $GetUnivBooksCopyWith<GetUnivBooks> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetSchoolBooksCopyWith<$Res>
+    implements $BookEventCopyWith<$Res> {
+  factory $GetSchoolBooksCopyWith(
+          GetSchoolBooks value, $Res Function(GetSchoolBooks) then) =
+      _$GetSchoolBooksCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String token, String title, String year, String level, String wilaya});
+}
+
+/// @nodoc
+class _$GetSchoolBooksCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $GetSchoolBooksCopyWith<$Res> {
+  _$GetSchoolBooksCopyWithImpl(
+      GetSchoolBooks _value, $Res Function(GetSchoolBooks) _then)
+      : super(_value, (v) => _then(v as GetSchoolBooks));
+
+  @override
+  GetSchoolBooks get _value => super._value as GetSchoolBooks;
+
+  @override
+  $Res call({
+    Object token = freezed,
+    Object title = freezed,
+    Object year = freezed,
+    Object level = freezed,
+    Object wilaya = freezed,
+  }) {
+    return _then(GetSchoolBooks(
+      token == freezed ? _value.token : token as String,
+      title == freezed ? _value.title : title as String,
+      year == freezed ? _value.year : year as String,
+      level == freezed ? _value.level : level as String,
+      wilaya == freezed ? _value.wilaya : wilaya as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetSchoolBooks implements GetSchoolBooks {
+  const _$GetSchoolBooks(
+      this.token, this.title, this.year, this.level, this.wilaya)
+      : assert(token != null),
+        assert(title != null),
+        assert(year != null),
+        assert(level != null),
+        assert(wilaya != null);
+
+  @override
+  final String token;
+  @override
+  final String title;
+  @override
+  final String year;
+  @override
+  final String level;
+  @override
+  final String wilaya;
+
+  @override
+  String toString() {
+    return 'BookEvent.getSchoolBooks(token: $token, title: $title, year: $year, level: $level, wilaya: $wilaya)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetSchoolBooks &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.year, year) ||
+                const DeepCollectionEquality().equals(other.year, year)) &&
+            (identical(other.level, level) ||
+                const DeepCollectionEquality().equals(other.level, level)) &&
+            (identical(other.wilaya, wilaya) ||
+                const DeepCollectionEquality().equals(other.wilaya, wilaya)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(year) ^
+      const DeepCollectionEquality().hash(level) ^
+      const DeepCollectionEquality().hash(wilaya);
+
+  @JsonKey(ignore: true)
+  @override
+  $GetSchoolBooksCopyWith<GetSchoolBooks> get copyWith =>
+      _$GetSchoolBooksCopyWithImpl<GetSchoolBooks>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return getSchoolBooks(token, title, year, level, wilaya);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (getSchoolBooks != null) {
+      return getSchoolBooks(token, title, year, level, wilaya);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return getSchoolBooks(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (getSchoolBooks != null) {
+      return getSchoolBooks(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSchoolBooks implements BookEvent {
+  const factory GetSchoolBooks(String token, String title, String year,
+      String level, String wilaya) = _$GetSchoolBooks;
+
+  @override
+  String get token;
+  String get title;
+  String get year;
+  String get level;
+  String get wilaya;
+  @override
+  @JsonKey(ignore: true)
+  $GetSchoolBooksCopyWith<GetSchoolBooks> get copyWith;
+}
+
+/// @nodoc
+abstract class $RateBookCopyWith<$Res> implements $BookEventCopyWith<$Res> {
+  factory $RateBookCopyWith(RateBook value, $Res Function(RateBook) then) =
+      _$RateBookCopyWithImpl<$Res>;
+  @override
+  $Res call({String id, String token, int rating});
+}
+
+/// @nodoc
+class _$RateBookCopyWithImpl<$Res> extends _$BookEventCopyWithImpl<$Res>
+    implements $RateBookCopyWith<$Res> {
+  _$RateBookCopyWithImpl(RateBook _value, $Res Function(RateBook) _then)
+      : super(_value, (v) => _then(v as RateBook));
+
+  @override
+  RateBook get _value => super._value as RateBook;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object token = freezed,
+    Object rating = freezed,
+  }) {
+    return _then(RateBook(
+      id == freezed ? _value.id : id as String,
+      token == freezed ? _value.token : token as String,
+      rating == freezed ? _value.rating : rating as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$RateBook implements RateBook {
+  const _$RateBook(this.id, this.token, this.rating)
+      : assert(id != null),
+        assert(token != null),
+        assert(rating != null);
+
+  @override
+  final String id;
+  @override
+  final String token;
+  @override
+  final int rating;
+
+  @override
+  String toString() {
+    return 'BookEvent.rateBook(id: $id, token: $token, rating: $rating)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is RateBook &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(rating);
+
+  @JsonKey(ignore: true)
+  @override
+  $RateBookCopyWith<RateBook> get copyWith =>
+      _$RateBookCopyWithImpl<RateBook>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult getBookById(String token, String id),
+    @required TResult getBooks(String token),
+    @required TResult getSalonBooks(String token, int page),
+    @required
+        TResult reactBook(String token, String id, Map<String, dynamic> body),
+    @required
+        TResult reviewBook(
+            String id, Map<String, dynamic> reviews, String token),
+    @required TResult addToPanier(String token, Map<String, dynamic> panier),
+    @required
+        TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    @required TResult requestPrice(String token, Map<String, dynamic> body),
+    @required TResult getBookByCategory(String token, String category),
+    @required TResult getPrivateRequests(String token),
+    @required
+        TResult sendMoment(String token, Map<String, dynamic> reviews,
+            String filePath, String id),
+    @required TResult deliverPanier(String token, Map<String, dynamic> body),
+    @required TResult pickOrder(Map<String, dynamic> body, String token),
+    @required TResult getOrders(String token),
+    @required TResult findBookInLibrary(String token, String id),
+    @required
+        TResult getUnivBookss(String token, String title, String language,
+            String domain, String filiere),
+    @required
+        TResult getSchoolBooks(String token, String title, String year,
+            String level, String wilaya),
+    @required TResult rateBook(String id, String token, int rating),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return rateBook(id, token, rating);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult getBookById(String token, String id),
+    TResult getBooks(String token),
+    TResult getSalonBooks(String token, int page),
+    TResult reactBook(String token, String id, Map<String, dynamic> body),
+    TResult reviewBook(String id, Map<String, dynamic> reviews, String token),
+    TResult addToPanier(String token, Map<String, dynamic> panier),
+    TResult unRefrencedRequest(String token, Map<String, dynamic> body),
+    TResult requestPrice(String token, Map<String, dynamic> body),
+    TResult getBookByCategory(String token, String category),
+    TResult getPrivateRequests(String token),
+    TResult sendMoment(
+        String token, Map<String, dynamic> reviews, String filePath, String id),
+    TResult deliverPanier(String token, Map<String, dynamic> body),
+    TResult pickOrder(Map<String, dynamic> body, String token),
+    TResult getOrders(String token),
+    TResult findBookInLibrary(String token, String id),
+    TResult getUnivBookss(String token, String title, String language,
+        String domain, String filiere),
+    TResult getSchoolBooks(
+        String token, String title, String year, String level, String wilaya),
+    TResult rateBook(String id, String token, int rating),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (rateBook != null) {
+      return rateBook(id, token, rating);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult getBookById(GetBookById value),
+    @required TResult getBooks(GetBooks value),
+    @required TResult getSalonBooks(GetSalonBooks value),
+    @required TResult reactBook(ReactBook value),
+    @required TResult reviewBook(ReviewBook value),
+    @required TResult addToPanier(AddToPanier value),
+    @required TResult unRefrencedRequest(UnRefrencedRequest value),
+    @required TResult requestPrice(RequestPrice value),
+    @required TResult getBookByCategory(GetBookByCategory value),
+    @required TResult getPrivateRequests(GetPrivateRequests value),
+    @required TResult sendMoment(SendMoment value),
+    @required TResult deliverPanier(DeliverPanier value),
+    @required TResult pickOrder(PickOrder value),
+    @required TResult getOrders(GetOrders value),
+    @required TResult findBookInLibrary(FindBookInLibrary value),
+    @required TResult getUnivBookss(GetUnivBooks value),
+    @required TResult getSchoolBooks(GetSchoolBooks value),
+    @required TResult rateBook(RateBook value),
+  }) {
+    assert(getBookById != null);
+    assert(getBooks != null);
+    assert(getSalonBooks != null);
+    assert(reactBook != null);
+    assert(reviewBook != null);
+    assert(addToPanier != null);
+    assert(unRefrencedRequest != null);
+    assert(requestPrice != null);
+    assert(getBookByCategory != null);
+    assert(getPrivateRequests != null);
+    assert(sendMoment != null);
+    assert(deliverPanier != null);
+    assert(pickOrder != null);
+    assert(getOrders != null);
+    assert(findBookInLibrary != null);
+    assert(getUnivBookss != null);
+    assert(getSchoolBooks != null);
+    assert(rateBook != null);
+    return rateBook(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult getBookById(GetBookById value),
+    TResult getBooks(GetBooks value),
+    TResult getSalonBooks(GetSalonBooks value),
+    TResult reactBook(ReactBook value),
+    TResult reviewBook(ReviewBook value),
+    TResult addToPanier(AddToPanier value),
+    TResult unRefrencedRequest(UnRefrencedRequest value),
+    TResult requestPrice(RequestPrice value),
+    TResult getBookByCategory(GetBookByCategory value),
+    TResult getPrivateRequests(GetPrivateRequests value),
+    TResult sendMoment(SendMoment value),
+    TResult deliverPanier(DeliverPanier value),
+    TResult pickOrder(PickOrder value),
+    TResult getOrders(GetOrders value),
+    TResult findBookInLibrary(FindBookInLibrary value),
+    TResult getUnivBookss(GetUnivBooks value),
+    TResult getSchoolBooks(GetSchoolBooks value),
+    TResult rateBook(RateBook value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (rateBook != null) {
+      return rateBook(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RateBook implements BookEvent {
+  const factory RateBook(String id, String token, int rating) = _$RateBook;
+
+  String get id;
+  @override
+  String get token;
+  int get rating;
+  @override
+  @JsonKey(ignore: true)
+  $RateBookCopyWith<RateBook> get copyWith;
 }
 
 /// @nodoc
@@ -2021,8 +4731,32 @@ class _$BookStateTearOff {
       @required
           Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess,
       @required
+          Option<Either<ServerFailure, String>>
+              unRefrencedRequestFailureOrSuccess,
+      @required
           Option<Either<ServerFailure, Map<String, dynamic>>>
-              findBookInLibraryFailureOrSuccess}) {
+              requestPriceFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              sendMomentFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              deliverPanierFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              findBookInLibraryFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              pickOrderFailureOrSuccessOption,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              getSchoolBooksFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              getUnivBooksFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, String>>
+              rateBookFailureOrSuccessOption}) {
     return _BookState(
       getBookByIdFailureOrSuccess: getBookByIdFailureOrSuccess,
       getBooksFailureOrSuccess: getBooksFailureOrSuccess,
@@ -2033,7 +4767,15 @@ class _$BookStateTearOff {
       getPrivateRequestFailureOrSuccess: getPrivateRequestFailureOrSuccess,
       getOrdersFailureOrSuccess: getOrdersFailureOrSuccess,
       reviewBookFailureOrSuccess: reviewBookFailureOrSuccess,
+      unRefrencedRequestFailureOrSuccess: unRefrencedRequestFailureOrSuccess,
+      requestPriceFailureOrSuccess: requestPriceFailureOrSuccess,
+      sendMomentFailureOrSuccess: sendMomentFailureOrSuccess,
+      deliverPanierFailureOrSuccess: deliverPanierFailureOrSuccess,
       findBookInLibraryFailureOrSuccess: findBookInLibraryFailureOrSuccess,
+      pickOrderFailureOrSuccessOption: pickOrderFailureOrSuccessOption,
+      getSchoolBooksFailureOrSuccess: getSchoolBooksFailureOrSuccess,
+      getUnivBooksFailureOrSuccess: getUnivBooksFailureOrSuccess,
+      rateBookFailureOrSuccessOption: rateBookFailureOrSuccessOption,
     );
   }
 }
@@ -2059,8 +4801,22 @@ mixin _$BookState {
   Option<Either<ServerFailure, Map<String, dynamic>>>
       get getOrdersFailureOrSuccess;
   Option<Either<ServerFailure, String>> get reviewBookFailureOrSuccess;
+  Option<Either<ServerFailure, String>> get unRefrencedRequestFailureOrSuccess;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get requestPriceFailureOrSuccess;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get sendMomentFailureOrSuccess;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get deliverPanierFailureOrSuccess;
   Option<Either<ServerFailure, Map<String, dynamic>>>
       get findBookInLibraryFailureOrSuccess;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get pickOrderFailureOrSuccessOption;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get getSchoolBooksFailureOrSuccess;
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get getUnivBooksFailureOrSuccess;
+  Option<Either<ServerFailure, String>> get rateBookFailureOrSuccessOption;
 
   @JsonKey(ignore: true)
   $BookStateCopyWith<BookState> get copyWith;
@@ -2086,8 +4842,22 @@ abstract class $BookStateCopyWith<$Res> {
       Option<Either<ServerFailure, Map<String, dynamic>>>
           getOrdersFailureOrSuccess,
       Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess,
+      Option<Either<ServerFailure, String>> unRefrencedRequestFailureOrSuccess,
       Option<Either<ServerFailure, Map<String, dynamic>>>
-          findBookInLibraryFailureOrSuccess});
+          requestPriceFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          sendMomentFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          deliverPanierFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          findBookInLibraryFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          pickOrderFailureOrSuccessOption,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          getSchoolBooksFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          getUnivBooksFailureOrSuccess,
+      Option<Either<ServerFailure, String>> rateBookFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -2109,7 +4879,15 @@ class _$BookStateCopyWithImpl<$Res> implements $BookStateCopyWith<$Res> {
     Object getPrivateRequestFailureOrSuccess = freezed,
     Object getOrdersFailureOrSuccess = freezed,
     Object reviewBookFailureOrSuccess = freezed,
+    Object unRefrencedRequestFailureOrSuccess = freezed,
+    Object requestPriceFailureOrSuccess = freezed,
+    Object sendMomentFailureOrSuccess = freezed,
+    Object deliverPanierFailureOrSuccess = freezed,
     Object findBookInLibraryFailureOrSuccess = freezed,
+    Object pickOrderFailureOrSuccessOption = freezed,
+    Object getSchoolBooksFailureOrSuccess = freezed,
+    Object getUnivBooksFailureOrSuccess = freezed,
+    Object rateBookFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
       getBookByIdFailureOrSuccess: getBookByIdFailureOrSuccess == freezed
@@ -2148,11 +4926,45 @@ class _$BookStateCopyWithImpl<$Res> implements $BookStateCopyWith<$Res> {
       reviewBookFailureOrSuccess: reviewBookFailureOrSuccess == freezed
           ? _value.reviewBookFailureOrSuccess
           : reviewBookFailureOrSuccess as Option<Either<ServerFailure, String>>,
+      unRefrencedRequestFailureOrSuccess:
+          unRefrencedRequestFailureOrSuccess == freezed
+              ? _value.unRefrencedRequestFailureOrSuccess
+              : unRefrencedRequestFailureOrSuccess
+                  as Option<Either<ServerFailure, String>>,
+      requestPriceFailureOrSuccess: requestPriceFailureOrSuccess == freezed
+          ? _value.requestPriceFailureOrSuccess
+          : requestPriceFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      sendMomentFailureOrSuccess: sendMomentFailureOrSuccess == freezed
+          ? _value.sendMomentFailureOrSuccess
+          : sendMomentFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      deliverPanierFailureOrSuccess: deliverPanierFailureOrSuccess == freezed
+          ? _value.deliverPanierFailureOrSuccess
+          : deliverPanierFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
       findBookInLibraryFailureOrSuccess:
           findBookInLibraryFailureOrSuccess == freezed
               ? _value.findBookInLibraryFailureOrSuccess
               : findBookInLibraryFailureOrSuccess
                   as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      pickOrderFailureOrSuccessOption:
+          pickOrderFailureOrSuccessOption == freezed
+              ? _value.pickOrderFailureOrSuccessOption
+              : pickOrderFailureOrSuccessOption
+                  as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      getSchoolBooksFailureOrSuccess: getSchoolBooksFailureOrSuccess == freezed
+          ? _value.getSchoolBooksFailureOrSuccess
+          : getSchoolBooksFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      getUnivBooksFailureOrSuccess: getUnivBooksFailureOrSuccess == freezed
+          ? _value.getUnivBooksFailureOrSuccess
+          : getUnivBooksFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      rateBookFailureOrSuccessOption: rateBookFailureOrSuccessOption == freezed
+          ? _value.rateBookFailureOrSuccessOption
+          : rateBookFailureOrSuccessOption
+              as Option<Either<ServerFailure, String>>,
     ));
   }
 }
@@ -2179,8 +4991,22 @@ abstract class _$BookStateCopyWith<$Res> implements $BookStateCopyWith<$Res> {
       Option<Either<ServerFailure, Map<String, dynamic>>>
           getOrdersFailureOrSuccess,
       Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess,
+      Option<Either<ServerFailure, String>> unRefrencedRequestFailureOrSuccess,
       Option<Either<ServerFailure, Map<String, dynamic>>>
-          findBookInLibraryFailureOrSuccess});
+          requestPriceFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          sendMomentFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          deliverPanierFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          findBookInLibraryFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          pickOrderFailureOrSuccessOption,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          getSchoolBooksFailureOrSuccess,
+      Option<Either<ServerFailure, Map<String, dynamic>>>
+          getUnivBooksFailureOrSuccess,
+      Option<Either<ServerFailure, String>> rateBookFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -2203,7 +5029,15 @@ class __$BookStateCopyWithImpl<$Res> extends _$BookStateCopyWithImpl<$Res>
     Object getPrivateRequestFailureOrSuccess = freezed,
     Object getOrdersFailureOrSuccess = freezed,
     Object reviewBookFailureOrSuccess = freezed,
+    Object unRefrencedRequestFailureOrSuccess = freezed,
+    Object requestPriceFailureOrSuccess = freezed,
+    Object sendMomentFailureOrSuccess = freezed,
+    Object deliverPanierFailureOrSuccess = freezed,
     Object findBookInLibraryFailureOrSuccess = freezed,
+    Object pickOrderFailureOrSuccessOption = freezed,
+    Object getSchoolBooksFailureOrSuccess = freezed,
+    Object getUnivBooksFailureOrSuccess = freezed,
+    Object rateBookFailureOrSuccessOption = freezed,
   }) {
     return _then(_BookState(
       getBookByIdFailureOrSuccess: getBookByIdFailureOrSuccess == freezed
@@ -2242,11 +5076,45 @@ class __$BookStateCopyWithImpl<$Res> extends _$BookStateCopyWithImpl<$Res>
       reviewBookFailureOrSuccess: reviewBookFailureOrSuccess == freezed
           ? _value.reviewBookFailureOrSuccess
           : reviewBookFailureOrSuccess as Option<Either<ServerFailure, String>>,
+      unRefrencedRequestFailureOrSuccess:
+          unRefrencedRequestFailureOrSuccess == freezed
+              ? _value.unRefrencedRequestFailureOrSuccess
+              : unRefrencedRequestFailureOrSuccess
+                  as Option<Either<ServerFailure, String>>,
+      requestPriceFailureOrSuccess: requestPriceFailureOrSuccess == freezed
+          ? _value.requestPriceFailureOrSuccess
+          : requestPriceFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      sendMomentFailureOrSuccess: sendMomentFailureOrSuccess == freezed
+          ? _value.sendMomentFailureOrSuccess
+          : sendMomentFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      deliverPanierFailureOrSuccess: deliverPanierFailureOrSuccess == freezed
+          ? _value.deliverPanierFailureOrSuccess
+          : deliverPanierFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
       findBookInLibraryFailureOrSuccess:
           findBookInLibraryFailureOrSuccess == freezed
               ? _value.findBookInLibraryFailureOrSuccess
               : findBookInLibraryFailureOrSuccess
                   as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      pickOrderFailureOrSuccessOption:
+          pickOrderFailureOrSuccessOption == freezed
+              ? _value.pickOrderFailureOrSuccessOption
+              : pickOrderFailureOrSuccessOption
+                  as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      getSchoolBooksFailureOrSuccess: getSchoolBooksFailureOrSuccess == freezed
+          ? _value.getSchoolBooksFailureOrSuccess
+          : getSchoolBooksFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      getUnivBooksFailureOrSuccess: getUnivBooksFailureOrSuccess == freezed
+          ? _value.getUnivBooksFailureOrSuccess
+          : getUnivBooksFailureOrSuccess
+              as Option<Either<ServerFailure, Map<String, dynamic>>>,
+      rateBookFailureOrSuccessOption: rateBookFailureOrSuccessOption == freezed
+          ? _value.rateBookFailureOrSuccessOption
+          : rateBookFailureOrSuccessOption
+              as Option<Either<ServerFailure, String>>,
     ));
   }
 }
@@ -2263,7 +5131,15 @@ class _$_BookState implements _BookState {
       @required this.getPrivateRequestFailureOrSuccess,
       @required this.getOrdersFailureOrSuccess,
       @required this.reviewBookFailureOrSuccess,
-      @required this.findBookInLibraryFailureOrSuccess})
+      @required this.unRefrencedRequestFailureOrSuccess,
+      @required this.requestPriceFailureOrSuccess,
+      @required this.sendMomentFailureOrSuccess,
+      @required this.deliverPanierFailureOrSuccess,
+      @required this.findBookInLibraryFailureOrSuccess,
+      @required this.pickOrderFailureOrSuccessOption,
+      @required this.getSchoolBooksFailureOrSuccess,
+      @required this.getUnivBooksFailureOrSuccess,
+      @required this.rateBookFailureOrSuccessOption})
       : assert(getBookByIdFailureOrSuccess != null),
         assert(getBooksFailureOrSuccess != null),
         assert(getSalonBooksFailureOrSuccess != null),
@@ -2273,7 +5149,15 @@ class _$_BookState implements _BookState {
         assert(getPrivateRequestFailureOrSuccess != null),
         assert(getOrdersFailureOrSuccess != null),
         assert(reviewBookFailureOrSuccess != null),
-        assert(findBookInLibraryFailureOrSuccess != null);
+        assert(unRefrencedRequestFailureOrSuccess != null),
+        assert(requestPriceFailureOrSuccess != null),
+        assert(sendMomentFailureOrSuccess != null),
+        assert(deliverPanierFailureOrSuccess != null),
+        assert(findBookInLibraryFailureOrSuccess != null),
+        assert(pickOrderFailureOrSuccessOption != null),
+        assert(getSchoolBooksFailureOrSuccess != null),
+        assert(getUnivBooksFailureOrSuccess != null),
+        assert(rateBookFailureOrSuccessOption != null);
 
   @override
   final Option<Either<ServerFailure, Map<String, dynamic>>>
@@ -2300,12 +5184,35 @@ class _$_BookState implements _BookState {
   @override
   final Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess;
   @override
+  final Option<Either<ServerFailure, String>>
+      unRefrencedRequestFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      requestPriceFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      sendMomentFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      deliverPanierFailureOrSuccess;
+  @override
   final Option<Either<ServerFailure, Map<String, dynamic>>>
       findBookInLibraryFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      pickOrderFailureOrSuccessOption;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      getSchoolBooksFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, Map<String, dynamic>>>
+      getUnivBooksFailureOrSuccess;
+  @override
+  final Option<Either<ServerFailure, String>> rateBookFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'BookState(getBookByIdFailureOrSuccess: $getBookByIdFailureOrSuccess, getBooksFailureOrSuccess: $getBooksFailureOrSuccess, getSalonBooksFailureOrSuccess: $getSalonBooksFailureOrSuccess, reactBookFailureOrSuccess: $reactBookFailureOrSuccess, addToPanierFailureOrSuccess: $addToPanierFailureOrSuccess, getBookByCategoryFailureOrSuccess: $getBookByCategoryFailureOrSuccess, getPrivateRequestFailureOrSuccess: $getPrivateRequestFailureOrSuccess, getOrdersFailureOrSuccess: $getOrdersFailureOrSuccess, reviewBookFailureOrSuccess: $reviewBookFailureOrSuccess, findBookInLibraryFailureOrSuccess: $findBookInLibraryFailureOrSuccess)';
+    return 'BookState(getBookByIdFailureOrSuccess: $getBookByIdFailureOrSuccess, getBooksFailureOrSuccess: $getBooksFailureOrSuccess, getSalonBooksFailureOrSuccess: $getSalonBooksFailureOrSuccess, reactBookFailureOrSuccess: $reactBookFailureOrSuccess, addToPanierFailureOrSuccess: $addToPanierFailureOrSuccess, getBookByCategoryFailureOrSuccess: $getBookByCategoryFailureOrSuccess, getPrivateRequestFailureOrSuccess: $getPrivateRequestFailureOrSuccess, getOrdersFailureOrSuccess: $getOrdersFailureOrSuccess, reviewBookFailureOrSuccess: $reviewBookFailureOrSuccess, unRefrencedRequestFailureOrSuccess: $unRefrencedRequestFailureOrSuccess, requestPriceFailureOrSuccess: $requestPriceFailureOrSuccess, sendMomentFailureOrSuccess: $sendMomentFailureOrSuccess, deliverPanierFailureOrSuccess: $deliverPanierFailureOrSuccess, findBookInLibraryFailureOrSuccess: $findBookInLibraryFailureOrSuccess, pickOrderFailureOrSuccessOption: $pickOrderFailureOrSuccessOption, getSchoolBooksFailureOrSuccess: $getSchoolBooksFailureOrSuccess, getUnivBooksFailureOrSuccess: $getUnivBooksFailureOrSuccess, rateBookFailureOrSuccessOption: $rateBookFailureOrSuccessOption)';
   }
 
   @override
@@ -2344,7 +5251,15 @@ class _$_BookState implements _BookState {
                 const DeepCollectionEquality()
                     .equals(other.getOrdersFailureOrSuccess, getOrdersFailureOrSuccess)) &&
             (identical(other.reviewBookFailureOrSuccess, reviewBookFailureOrSuccess) || const DeepCollectionEquality().equals(other.reviewBookFailureOrSuccess, reviewBookFailureOrSuccess)) &&
-            (identical(other.findBookInLibraryFailureOrSuccess, findBookInLibraryFailureOrSuccess) || const DeepCollectionEquality().equals(other.findBookInLibraryFailureOrSuccess, findBookInLibraryFailureOrSuccess)));
+            (identical(other.unRefrencedRequestFailureOrSuccess, unRefrencedRequestFailureOrSuccess) || const DeepCollectionEquality().equals(other.unRefrencedRequestFailureOrSuccess, unRefrencedRequestFailureOrSuccess)) &&
+            (identical(other.requestPriceFailureOrSuccess, requestPriceFailureOrSuccess) || const DeepCollectionEquality().equals(other.requestPriceFailureOrSuccess, requestPriceFailureOrSuccess)) &&
+            (identical(other.sendMomentFailureOrSuccess, sendMomentFailureOrSuccess) || const DeepCollectionEquality().equals(other.sendMomentFailureOrSuccess, sendMomentFailureOrSuccess)) &&
+            (identical(other.deliverPanierFailureOrSuccess, deliverPanierFailureOrSuccess) || const DeepCollectionEquality().equals(other.deliverPanierFailureOrSuccess, deliverPanierFailureOrSuccess)) &&
+            (identical(other.findBookInLibraryFailureOrSuccess, findBookInLibraryFailureOrSuccess) || const DeepCollectionEquality().equals(other.findBookInLibraryFailureOrSuccess, findBookInLibraryFailureOrSuccess)) &&
+            (identical(other.pickOrderFailureOrSuccessOption, pickOrderFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.pickOrderFailureOrSuccessOption, pickOrderFailureOrSuccessOption)) &&
+            (identical(other.getSchoolBooksFailureOrSuccess, getSchoolBooksFailureOrSuccess) || const DeepCollectionEquality().equals(other.getSchoolBooksFailureOrSuccess, getSchoolBooksFailureOrSuccess)) &&
+            (identical(other.getUnivBooksFailureOrSuccess, getUnivBooksFailureOrSuccess) || const DeepCollectionEquality().equals(other.getUnivBooksFailureOrSuccess, getUnivBooksFailureOrSuccess)) &&
+            (identical(other.rateBookFailureOrSuccessOption, rateBookFailureOrSuccessOption) || const DeepCollectionEquality().equals(other.rateBookFailureOrSuccessOption, rateBookFailureOrSuccessOption)));
   }
 
   @override
@@ -2359,7 +5274,15 @@ class _$_BookState implements _BookState {
       const DeepCollectionEquality().hash(getPrivateRequestFailureOrSuccess) ^
       const DeepCollectionEquality().hash(getOrdersFailureOrSuccess) ^
       const DeepCollectionEquality().hash(reviewBookFailureOrSuccess) ^
-      const DeepCollectionEquality().hash(findBookInLibraryFailureOrSuccess);
+      const DeepCollectionEquality().hash(unRefrencedRequestFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(requestPriceFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(sendMomentFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(deliverPanierFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(findBookInLibraryFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(pickOrderFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(getSchoolBooksFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(getUnivBooksFailureOrSuccess) ^
+      const DeepCollectionEquality().hash(rateBookFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -2394,8 +5317,32 @@ abstract class _BookState implements BookState {
       @required
           Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess,
       @required
+          Option<Either<ServerFailure, String>>
+              unRefrencedRequestFailureOrSuccess,
+      @required
           Option<Either<ServerFailure, Map<String, dynamic>>>
-              findBookInLibraryFailureOrSuccess}) = _$_BookState;
+              requestPriceFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              sendMomentFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              deliverPanierFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              findBookInLibraryFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              pickOrderFailureOrSuccessOption,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              getSchoolBooksFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, Map<String, dynamic>>>
+              getUnivBooksFailureOrSuccess,
+      @required
+          Option<Either<ServerFailure, String>>
+              rateBookFailureOrSuccessOption}) = _$_BookState;
 
   @override
   Option<Either<ServerFailure, Map<String, dynamic>>>
@@ -2422,8 +5369,30 @@ abstract class _BookState implements BookState {
   @override
   Option<Either<ServerFailure, String>> get reviewBookFailureOrSuccess;
   @override
+  Option<Either<ServerFailure, String>> get unRefrencedRequestFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get requestPriceFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get sendMomentFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get deliverPanierFailureOrSuccess;
+  @override
   Option<Either<ServerFailure, Map<String, dynamic>>>
       get findBookInLibraryFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get pickOrderFailureOrSuccessOption;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get getSchoolBooksFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, Map<String, dynamic>>>
+      get getUnivBooksFailureOrSuccess;
+  @override
+  Option<Either<ServerFailure, String>> get rateBookFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$BookStateCopyWith<_BookState> get copyWith;

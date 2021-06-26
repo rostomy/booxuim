@@ -1,16 +1,15 @@
-import 'package:booxuim/Pages/otpVerification.dart';
+import 'package:booxuim/Pages/signup.dart';
 import 'package:booxuim/config/routes/routes.dart';
 import 'package:booxuim/Pages/book_profile/book_profile.dart';
-import 'package:booxuim/pages/Panier/panier_page.dart';
 import 'package:booxuim/pages/Panier/widgets/panier_books.dart';
-import 'package:booxuim/pages/add_post/widgets/add_post.dart';
 import 'package:booxuim/pages/commnets/comment.dart';
 import 'package:booxuim/pages/filtring/filter.dart';
+import 'package:booxuim/pages/filtring/filter_univ.dart';
+import 'package:booxuim/pages/library/listFollowersAndSubscriptionsLibrary.dart';
 import 'package:booxuim/pages/login.dart';
-import 'package:booxuim/pages/not-messages-router.dart';
 import 'package:booxuim/pages/root.dart';
+import 'package:booxuim/pages/signup/signup_page.dart';
 import 'package:booxuim/pages/user_profile/list_followers.dart';
-import 'package:booxuim/pages/user_profile/list_subscriptions.dart';
 import 'package:booxuim/widgets/list_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +33,11 @@ class RouteGenerator {
 
         return _errorRoute();
 
+      case Routes.login:
+        return CupertinoPageRoute(builder: (_) => SignUp());
+
+        return _errorRoute();
+
       case Routes.filter:
         if (args is Map) {
           print(args.runtimeType);
@@ -42,6 +46,16 @@ class RouteGenerator {
                     type: args["type"],
                     tagId: args["tagId"],
                     tagName: args["tagName"],
+                  ));
+        }
+        return _errorRoute();
+
+      case Routes.unviFilter:
+        if (args is Map) {
+          return CupertinoPageRoute(
+              builder: (_) => FilterUnvi(
+                    domain: args["domain"],
+                    filiere: args["filiere"],
                   ));
         }
         return _errorRoute();
@@ -67,11 +81,11 @@ class RouteGenerator {
         return _errorRoute();
 
       case Routes.panierBooks:
-        if (args is List) {
+        if (args is Map) {
           print(args.runtimeType);
           return CupertinoPageRoute(
               builder: (_) => PanierBooks(
-                    books: args,
+                    order: args,
                   ));
         }
         return _errorRoute();
@@ -86,33 +100,26 @@ class RouteGenerator {
         }
         return _errorRoute();
 
-      case Routes.list_followers:
-        if (args is String) {
-          return CupertinoPageRoute(
-              builder: (_) => ListFollowers(
-                    id: args,
-                  ));
-        }
-        return _errorRoute();
-
-      case Routes.list_subscriptions:
-        if (args is String) {
-          return CupertinoPageRoute(
-              builder: (_) => ListSubscriptions(
-                    id: args,
-                  ));
-        }
-        return _errorRoute();
-
-      case Routes.otp_Verification:
+      case Routes.list_followersAndSubscriptions:
         if (args is Map) {
           return CupertinoPageRoute(
-              builder: (_) => OtpVerification(
-                    phoneNumber: args["phoneNumber"],
-                    verificationID: args["verificationID"],
+              builder: (_) => ListFollowersAndSubscriptions(
+                    id: args["id"],
+                    type: args["type"],
                   ));
         }
         return _errorRoute();
+
+      case Routes.list_followersAndSubscriptionsLibrary:
+        if (args is Map) {
+          return CupertinoPageRoute(
+              builder: (_) => ListFollowersAndSubscriptionsLibrary(
+                    id: args["id"],
+                    type: args["type"],
+                  ));
+        }
+        return _errorRoute();
+
       default:
         return _errorRoute();
     }

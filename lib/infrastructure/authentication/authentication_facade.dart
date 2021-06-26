@@ -1,11 +1,10 @@
 import 'package:booxuim/domain/authentication/i_authentication_facade.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthenticationFacade)
 class AuthenticationFacade implements IAuthenticationFacade {
-  @override
+  /* @override
   Future<Either<FirebaseAuthException, PhoneAuthCredential>> verfiyPhoneNumber(
       {String phoneNumber,
       void Function(String phoneNumber, String verficationID) next}) async {
@@ -22,5 +21,5 @@ class AuthenticationFacade implements IAuthenticationFacade {
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
-  }
+  }*/
 }

@@ -51,7 +51,7 @@ class _BookSearchPopUpState extends State<BookSearchPopUp> {
   bool isReplay = false;
 
   Future<List<Post>> _getALlPosts(String text) async {
-    /* final response = await http
+    final response = await http
         .get('http://213.136.94.188:5000/mobile/books/?title=$text', headers: {
       HttpHeaders.authorizationHeader:
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3YTkwYzJiZTNhYTViNjAzNzhlNmEiLCJ1c2VybmFtZSI6Im5hbWUyIiwiaWF0IjoxNjIyNTQ0MDE1fQ.tKn7BxIS8XN8cQjgUe4RO08A4pFKFMyTgJDsUkONAjY",
@@ -71,7 +71,7 @@ class _BookSearchPopUpState extends State<BookSearchPopUp> {
       return posts;
     } else {
       throw Exception('Failed to load data');
-    }*/
+    }
   }
 
   @override

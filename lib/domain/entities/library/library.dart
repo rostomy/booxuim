@@ -1,3 +1,4 @@
+import 'package:booxuim/domain/entities/address/address.dart';
 import 'package:booxuim/domain/entities/book/book.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -19,8 +20,8 @@ abstract class Library with _$Library {
     @nullable int status,
     @nullable bool deleted,
     @nullable bool active,
-    @nullable String showcase,
-    // @nullable Address address,
+    @nullable List showcase,
+    @nullable Address address,
     @nullable List<Book> books,
     // @nullable List<Rating> ratings,
     @nullable List<String> phone,

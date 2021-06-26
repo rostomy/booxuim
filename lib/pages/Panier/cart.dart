@@ -26,7 +26,7 @@ class _OrdersState extends State<Orders> {
           return InkWell(
             onTap: () {
               Navigator.pushNamed(context, Routes.panierBooks,
-                  arguments: orders["orders"][index]["panier"]);
+                  arguments: orders["orders"][index]);
             },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
@@ -75,7 +75,7 @@ class _OrdersState extends State<Orders> {
                           height: 5,
                         ),
                         Text(
-                          "",
+                          "${orders["orders"][index]["type"]}",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 12,
@@ -126,7 +126,7 @@ class _OrdersState extends State<Orders> {
       child: BlocConsumer<BookBloc, BookState>(
         listener: (context, state) {
           state.getOrdersFailureOrSuccess.fold(() => null,
-              (either) => either.fold((l) => print(l), (r) => null));
+              (either) => either.fold((l) => print(l), (r) => print(r)));
         },
         builder: (context, state) {
           return state.getOrdersFailureOrSuccess.fold(

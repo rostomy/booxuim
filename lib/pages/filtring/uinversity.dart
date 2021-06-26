@@ -1,5 +1,7 @@
 import 'package:booxuim/config/routes/routes.dart';
 import 'package:booxuim/models/domains.dart';
+import 'package:booxuim/pages/login.dart';
+import 'package:booxuim/widgets/button.dart';
 import 'package:booxuim/widgets/list_data.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,8 @@ class University extends StatefulWidget {
 }
 
 class _UniversityState extends State<University> {
+  String domain = "";
+  String filiere = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,6 +115,25 @@ class _UniversityState extends State<University> {
                             ],
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Button(
+                        callback: () {
+                          domain = ListData().selectedDomainFun()["DomainID"];
+                          filiere = ListSubDomains()
+                              .selectedSubDomainFun()["SubDomainId"];
+
+                          if (domain.isNotEmpty && filiere.isNotEmpty) {
+                            Navigator.pushNamed(context, Routes.unviFilter,
+                                arguments: {
+                                  "domain": domain,
+                                  "filiere": filiere,
+                                });
+                          }
+                        },
+                        text: "Search",
                       ),
                     ],
                   ),

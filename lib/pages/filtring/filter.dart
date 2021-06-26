@@ -236,7 +236,6 @@ class _FilterState extends State<Filter> {
                                 children: [Text(failure.toString())],
                               ),
                             ), (success) {
-                      print(success["books"]);
                       return ListView(
                         children: [
                           Padding(

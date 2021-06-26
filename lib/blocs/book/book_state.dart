@@ -25,10 +25,41 @@ abstract class BookState with _$BookState {
             getOrdersFailureOrSuccess,
     @required Option<Either<ServerFailure, String>> reviewBookFailureOrSuccess,
     @required
+        Option<Either<ServerFailure, String>>
+            unRefrencedRequestFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            requestPriceFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            sendMomentFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            deliverPanierFailureOrSuccess,
+    @required
         Option<Either<ServerFailure, Map<String, dynamic>>>
             findBookInLibraryFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            pickOrderFailureOrSuccessOption,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            getSchoolBooksFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, Map<String, dynamic>>>
+            getUnivBooksFailureOrSuccess,
+    @required
+        Option<Either<ServerFailure, String>> rateBookFailureOrSuccessOption,
   }) = _BookState;
   factory BookState.initial() => BookState(
+        getSchoolBooksFailureOrSuccess: none(),
+        getUnivBooksFailureOrSuccess: none(),
+        pickOrderFailureOrSuccessOption: none(),
+        deliverPanierFailureOrSuccess: none(),
+        sendMomentFailureOrSuccess: none(),
+        requestPriceFailureOrSuccess: none(),
+        rateBookFailureOrSuccessOption: none(),
+        unRefrencedRequestFailureOrSuccess: none(),
         findBookInLibraryFailureOrSuccess: none(),
         reviewBookFailureOrSuccess: none(),
         getOrdersFailureOrSuccess: none(),

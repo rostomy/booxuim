@@ -2,14 +2,20 @@ import 'package:booxuim/Pages/Login.dart';
 import 'package:booxuim/blocs/book/book_bloc.dart';
 import 'package:booxuim/domain/entities/book/book.dart';
 import 'package:booxuim/injection.dart';
-import 'package:booxuim/pages/book_profile/avis.dart';
+import 'package:booxuim/pages/book_profile/review.dart';
 import 'package:booxuim/pages/book_profile/widgets/react_icons.dart';
+import 'package:booxuim/pages/user_profile/moments.dart';
 import 'package:booxuim/widgets/book_image.dart';
 import 'package:booxuim/widgets/book_list_shimmer.dart';
+import 'package:booxuim/widgets/button.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'widgets/add_moment.dart';
 
 class BookProfile extends StatefulWidget {
   final String id;
@@ -22,8 +28,12 @@ class BookProfile extends StatefulWidget {
 class _BookProfileState extends State<BookProfile>
     with SingleTickerProviderStateMixin {
   TabController tabController;
-  BookBloc _bookBloc = BookBloc();
+  BookBloc _bookBloc;
   Book book;
+  bool _liked = false;
+  bool _isRead = false;
+  bool _toRead = false;
+  List<String> images = [];
   String token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3YTkwYzJiZTNhYTViNjAzNzhlNmEiLCJ1c2VybmFtZSI6Im5hbWUyIiwiaWF0IjoxNjIyNTQ0MDE1fQ.tKn7BxIS8XN8cQjgUe4RO08A4pFKFMyTgJDsUkONAjY";
   @override
@@ -32,7 +42,7 @@ class _BookProfileState extends State<BookProfile>
     super.initState();
   }
 
-  void displayBottomSheet(BuildContext context) {
+  void displayBottomSheet(BuildContext context, String bookID) {
     showModalBottomSheet(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -44,8 +54,8 @@ class _BookProfileState extends State<BookProfile>
           return BlocProvider(
             create: (context) => _bookBloc
               ..add(BookEvent.findBookInLibrary(
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3YTkwYzJiZTNhYTViNjAzNzhlNmEiLCJ1c2VybmFtZSI6Im5hbWUyIiwiaWF0IjoxNjIzNTgzMDUwfQ.H26vT7lUB5jSeHsbGgcAlEtGj5LBUAdek4kGXOZzwro",
-                  book.id)),
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3YTkwYzJiZTNhYTViNjAzNzhlNmEiLCJ1c2VybmFtZSI6Im5hbWUyIiwiaWF0IjoxNjI0NDQ1MTk2fQ.ltsmSe9bQ-ltmDBpVBlaCTyr8YMzp8QzvjVgVJk_lxo",
+                  bookID)),
             child: BlocConsumer<BookBloc, BookState>(
               listener: (context, state) {},
               builder: (context, state) {
@@ -57,52 +67,137 @@ class _BookProfileState extends State<BookProfile>
                             (l) => Center(
                                   child: Text(l.msg),
                                 ), (r) {
-                          return ListView.builder(
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 130,
-                                      width: MediaQuery.of(context).size.width -
-                                          30,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          border: Border.all(
-                                            width: 1,
-                                            color: Colors.grey,
-                                          )),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
+                          print(r);
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 30.0),
+                            child: ListView.builder(
+                              itemCount: r["libraries"].length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: InkWell(
+                                    onTap: () {},
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 20.0),
+                                      child: Container(
+                                        padding: EdgeInsets.only(
+                                            top: 20, bottom: 20),
+                                        width:
+                                            MediaQuery.of(context).size.width -
+                                                30,
+                                        decoration: BoxDecoration(
+                                            color: Color(0XFFEFEFEF),
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
                                           children: [
-                                            Row(
-                                              children: [],
+                                            ListTile(
+                                              leading: Column(
+                                                children: [
+                                                  Container(
+                                                    width: 55,
+                                                    height: 55,
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: r["libraries"]
+                                                                      [index][
+                                                                  "cover_pic"] !=
+                                                              null
+                                                          ? "http://213.136.94.188:5000/${r["libraries"][index]["cover_pic"]}" ??
+                                                              r["libraries"]
+                                                                      [index][
+                                                                  "cover_pic_isbndb"] ??
+                                                              "http://213.136.94.188:5000/uploads/posts/1590959551734.png"
+                                                          : "http://213.136.94.188:5000/uploads/posts/1590959551734.png",
+                                                      imageBuilder:
+                                                          (context, provider) {
+                                                        return Container(
+                                                          height: 55,
+                                                          width: 55,
+                                                          decoration: BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              image: DecorationImage(
+                                                                  image:
+                                                                      provider,
+                                                                  fit: BoxFit
+                                                                      .cover)),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              title: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 10.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      r["libraries"][index]
+                                                          ["name"],
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 16,
+                                                          color: Colors.black),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Text(
+                                                      r["libraries"][index]
+                                                                  ["address"]
+                                                              ["wilaya"] ??
+                                                          "",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
                                             ),
                                             Container(
                                               width: MediaQuery.of(context)
                                                       .size
                                                       .width -
-                                                  60,
+                                                  80,
                                               height: 45,
-                                              child: Button(
-                                                callback: () {},
-                                                text: "Add to cart",
+                                              child: BlocProvider.value(
+                                                value: _bookBloc,
+                                                child: Button(
+                                                  callback: () {
+                                                    _bookBloc
+                                                      ..add(BookEvent
+                                                          .requestPrice(token, {
+                                                        "book": bookID,
+                                                        "library":
+                                                            r["libraries"]
+                                                                [index]["_id"]
+                                                      }));
+                                                    Navigator.pop(context);
+                                                    print("requsted");
+                                                  },
+                                                  text: "Request price",
+                                                ),
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              );
-                            },
+                                  ),
+                                );
+                              },
+                            ),
                           );
                         }));
               },
@@ -140,6 +235,25 @@ class _BookProfileState extends State<BookProfile>
               (success) {},
             ),
           );
+
+          state.rateBookFailureOrSuccessOption.fold(
+            () => null,
+            (either) => either.fold(
+              (failure) => {print(failure.msg)},
+              (success) {
+                print("book rated");
+              },
+            ),
+          );
+          state.requestPriceFailureOrSuccess.fold(
+            () => null,
+            (either) => either.fold(
+              (failure) => {print(failure.msg)},
+              (success) {
+                print(success);
+              },
+            ),
+          );
         },
         builder: (context, state) {
           return state.getBookByIdFailureOrSuccess.fold(
@@ -158,6 +272,14 @@ class _BookProfileState extends State<BookProfile>
                             ),
                           ), (success) {
                     book = Book.fromJson(success);
+                    _liked = book.is_liked;
+                    _isRead = book.is_read;
+                    _toRead = book.is_to_read;
+                    print(success);
+
+                    for (var i = 0; i < success["moments"].length; i++) {
+                      images.add(success["moments"][i]["picture"]);
+                    }
                     return Scaffold(
                         bottomNavigationBar: Container(
                           height: 100,
@@ -178,7 +300,7 @@ class _BookProfileState extends State<BookProfile>
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        displayBottomSheet(context);
+                                        displayBottomSheet(context, book.id);
                                       },
                                       child: Container(
                                         height: 55,
@@ -341,16 +463,16 @@ class _BookProfileState extends State<BookProfile>
                                                     children: [
                                                       Container(
                                                         width: 200,
-                                                        child: Flexible(
-                                                          flex: 0,
-                                                          child: Text(
-                                                            book.title ?? "",
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 17,
-                                                            ),
+                                                        child: Text(
+                                                          book.title.length >=
+                                                                  40
+                                                              ? "${book.title.substring(0, 40)} ... "
+                                                              : book.title ??
+                                                                  "",
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 17,
                                                           ),
                                                         ),
                                                       ),
@@ -378,33 +500,47 @@ class _BookProfileState extends State<BookProfile>
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      RatingBar(
-                                                          itemSize: 17,
-                                                          itemCount: 5,
-                                                          itemPadding:
-                                                              EdgeInsets.all(3),
-                                                          glowColor:
-                                                              Colors.amber,
-                                                          ratingWidget:
-                                                              RatingWidget(
-                                                            empty: Icon(
-                                                              Icons.star,
-                                                              color: Colors
-                                                                  .green[500],
+                                                      BlocProvider.value(
+                                                        value: _bookBloc,
+                                                        child: RatingBar(
+                                                            itemSize: 17,
+                                                            itemCount: 5,
+                                                            itemPadding:
+                                                                EdgeInsets.all(
+                                                                    3),
+                                                            glowColor:
+                                                                Colors.amber,
+                                                            ratingWidget:
+                                                                RatingWidget(
+                                                              empty: Icon(
+                                                                FontAwesomeIcons
+                                                                    .star,
+                                                                color: Colors
+                                                                    .green[500],
+                                                              ),
+                                                              half: Icon(
+                                                                Icons.star,
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                              full: Icon(
+                                                                FontAwesomeIcons
+                                                                    .solidStar,
+                                                                color: Colors
+                                                                    .amber[500],
+                                                              ),
                                                             ),
-                                                            half: Icon(
-                                                              Icons.star,
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
-                                                            full: Icon(
-                                                              Icons.star,
-                                                              color: Colors
-                                                                  .amber[500],
-                                                            ),
-                                                          ),
-                                                          onRatingUpdate:
-                                                              (value) {}),
+                                                            onRatingUpdate:
+                                                                (value) {
+                                                              _bookBloc.add(
+                                                                  BookEvent
+                                                                      .rateBook(
+                                                                book.id,
+                                                                token,
+                                                                value.toInt(),
+                                                              ));
+                                                            }),
+                                                      ),
                                                       SizedBox(
                                                         height: 5,
                                                       ),
@@ -414,8 +550,7 @@ class _BookProfileState extends State<BookProfile>
                                                             ? success["medium_price"] ==
                                                                     null
                                                                 ? ""
-                                                                : success[
-                                                                    "medium_price"]
+                                                                : "${success["medium_price"].toString()}  DA"
                                                             : "${book.publisher_price} DA",
                                                         style: TextStyle(
                                                             fontWeight:
@@ -440,6 +575,7 @@ class _BookProfileState extends State<BookProfile>
                                                                   icon: Icons
                                                                       .favorite_border_outlined,
                                                                   id: widget.id,
+                                                                  value: _liked,
                                                                   reaction:
                                                                       "like",
                                                                 ),
@@ -467,6 +603,8 @@ class _BookProfileState extends State<BookProfile>
                                                             Column(
                                                               children: [
                                                                 ReactIcons(
+                                                                  value:
+                                                                      _toRead,
                                                                   icon: Icons
                                                                       .done,
                                                                   id: widget.id,
@@ -493,6 +631,8 @@ class _BookProfileState extends State<BookProfile>
                                                             Column(
                                                               children: [
                                                                 ReactIcons(
+                                                                  value:
+                                                                      _toRead,
                                                                   icon: Icons
                                                                       .schedule_outlined,
                                                                   id: widget.id,
@@ -637,8 +777,18 @@ class _BookProfileState extends State<BookProfile>
                                                 data: success["extrait"] ?? [],
                                                 type: "extraits",
                                               ),
-                                              Center(
-                                                child: Text("Hel"),
+                                              Column(
+                                                children: [
+                                                  AddMoments(),
+                                                  SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  Expanded(
+                                                    child: Moments(
+                                                      images: images,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ],
                                           ),

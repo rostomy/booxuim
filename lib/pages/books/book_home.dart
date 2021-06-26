@@ -2,18 +2,18 @@ import 'package:booxuim/blocs/book/book_bloc.dart';
 import 'package:booxuim/config/routes/routes.dart';
 import 'package:booxuim/domain/entities/book/book.dart';
 import 'package:booxuim/domain/entities/salon_book/salon_book.dart';
+import 'package:booxuim/domain/search/i_search_facade.dart';
 import 'package:booxuim/infrastructure/book/book.dart';
+import 'package:booxuim/infrastructure/search/search.dart';
 import 'package:booxuim/injection.dart';
 import 'package:booxuim/pages/Panier/panier_page.dart';
 import 'package:booxuim/pages/books/list_vitrine_books.dart';
 import 'package:booxuim/pages/books/salon_books.dart';
-import 'package:booxuim/pages/filtring/bottomSheet.dart';
+import 'package:booxuim/pages/filtring/widgets/bottomSheet.dart';
 import 'package:booxuim/pages/search/search.dart';
-import 'package:booxuim/widgets/book_image.dart';
 import 'package:booxuim/widgets/book_list_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class BooksHome extends StatefulWidget {
   @override
@@ -97,7 +97,9 @@ class _BooksHomeState extends State<BooksHome> {
                             icon: Icon(
                               Icons.tune_outlined,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              displayBottomSheet(context);
+                            },
                           ),
                           SizedBox(
                             width: 5,

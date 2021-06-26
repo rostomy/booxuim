@@ -20,7 +20,10 @@ _$_Library _$_$_LibraryFromJson(Map<String, dynamic> json) {
     status: json['status'] as int,
     deleted: json['deleted'] as bool,
     active: json['active'] as bool,
-    showcase: json['showcase'] as String,
+    showcase: json['showcase'] as List,
+    address: json['address'] == null
+        ? null
+        : Address.fromJson(json['address'] as Map<String, dynamic>),
     books: (json['books'] as List)
         ?.map(
             (e) => e == null ? null : Book.fromJson(e as Map<String, dynamic>))
@@ -45,6 +48,7 @@ Map<String, dynamic> _$_$_LibraryToJson(_$_Library instance) =>
       'deleted': instance.deleted,
       'active': instance.active,
       'showcase': instance.showcase,
+      'address': instance.address,
       'books': instance.books,
       'phone': instance.phone,
       'avg_rating': instance.avg_rating,

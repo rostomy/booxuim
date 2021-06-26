@@ -18,7 +18,8 @@ class _$BookTearOff {
 
 // ignore: unused_element
   _Book call(
-      {String title,
+      {String cover_pic_isbndb,
+      String title,
       String searchableTitle,
       String isbn,
       String publisher,
@@ -45,10 +46,14 @@ class _$BookTearOff {
       int total_in_library,
       int total_proposed,
       double publisher_price,
+      bool is_liked,
+      bool is_read,
+      bool is_to_read,
       String type,
       String subtype1,
       String subtype2}) {
     return _Book(
+      cover_pic_isbndb: cover_pic_isbndb,
       title: title,
       searchableTitle: searchableTitle,
       isbn: isbn,
@@ -76,6 +81,9 @@ class _$BookTearOff {
       total_in_library: total_in_library,
       total_proposed: total_proposed,
       publisher_price: publisher_price,
+      is_liked: is_liked,
+      is_read: is_read,
+      is_to_read: is_to_read,
       type: type,
       subtype1: subtype1,
       subtype2: subtype2,
@@ -95,7 +103,7 @@ const $Book = _$BookTearOff();
 /// @nodoc
 mixin _$Book {
 //String languages,
-//  String cover_pic_isbndb,
+  String get cover_pic_isbndb;
   String get title;
   String get searchableTitle;
   String get isbn;
@@ -126,6 +134,9 @@ mixin _$Book {
   int get total_in_library;
   int get total_proposed;
   double get publisher_price;
+  bool get is_liked;
+  bool get is_read;
+  bool get is_to_read;
   String get type;
   String get subtype1;
   String get subtype2;
@@ -140,7 +151,8 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res>;
   $Res call(
-      {String title,
+      {String cover_pic_isbndb,
+      String title,
       String searchableTitle,
       String isbn,
       String publisher,
@@ -167,6 +179,9 @@ abstract class $BookCopyWith<$Res> {
       int total_in_library,
       int total_proposed,
       double publisher_price,
+      bool is_liked,
+      bool is_read,
+      bool is_to_read,
       String type,
       String subtype1,
       String subtype2});
@@ -182,6 +197,7 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
 
   @override
   $Res call({
+    Object cover_pic_isbndb = freezed,
     Object title = freezed,
     Object searchableTitle = freezed,
     Object isbn = freezed,
@@ -209,11 +225,17 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
     Object total_in_library = freezed,
     Object total_proposed = freezed,
     Object publisher_price = freezed,
+    Object is_liked = freezed,
+    Object is_read = freezed,
+    Object is_to_read = freezed,
     Object type = freezed,
     Object subtype1 = freezed,
     Object subtype2 = freezed,
   }) {
     return _then(_value.copyWith(
+      cover_pic_isbndb: cover_pic_isbndb == freezed
+          ? _value.cover_pic_isbndb
+          : cover_pic_isbndb as String,
       title: title == freezed ? _value.title : title as String,
       searchableTitle: searchableTitle == freezed
           ? _value.searchableTitle
@@ -262,6 +284,10 @@ class _$BookCopyWithImpl<$Res> implements $BookCopyWith<$Res> {
       publisher_price: publisher_price == freezed
           ? _value.publisher_price
           : publisher_price as double,
+      is_liked: is_liked == freezed ? _value.is_liked : is_liked as bool,
+      is_read: is_read == freezed ? _value.is_read : is_read as bool,
+      is_to_read:
+          is_to_read == freezed ? _value.is_to_read : is_to_read as bool,
       type: type == freezed ? _value.type : type as String,
       subtype1: subtype1 == freezed ? _value.subtype1 : subtype1 as String,
       subtype2: subtype2 == freezed ? _value.subtype2 : subtype2 as String,
@@ -275,7 +301,8 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$BookCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title,
+      {String cover_pic_isbndb,
+      String title,
       String searchableTitle,
       String isbn,
       String publisher,
@@ -302,6 +329,9 @@ abstract class _$BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       int total_in_library,
       int total_proposed,
       double publisher_price,
+      bool is_liked,
+      bool is_read,
+      bool is_to_read,
       String type,
       String subtype1,
       String subtype2});
@@ -318,6 +348,7 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object cover_pic_isbndb = freezed,
     Object title = freezed,
     Object searchableTitle = freezed,
     Object isbn = freezed,
@@ -345,11 +376,17 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
     Object total_in_library = freezed,
     Object total_proposed = freezed,
     Object publisher_price = freezed,
+    Object is_liked = freezed,
+    Object is_read = freezed,
+    Object is_to_read = freezed,
     Object type = freezed,
     Object subtype1 = freezed,
     Object subtype2 = freezed,
   }) {
     return _then(_Book(
+      cover_pic_isbndb: cover_pic_isbndb == freezed
+          ? _value.cover_pic_isbndb
+          : cover_pic_isbndb as String,
       title: title == freezed ? _value.title : title as String,
       searchableTitle: searchableTitle == freezed
           ? _value.searchableTitle
@@ -398,6 +435,10 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
       publisher_price: publisher_price == freezed
           ? _value.publisher_price
           : publisher_price as double,
+      is_liked: is_liked == freezed ? _value.is_liked : is_liked as bool,
+      is_read: is_read == freezed ? _value.is_read : is_read as bool,
+      is_to_read:
+          is_to_read == freezed ? _value.is_to_read : is_to_read as bool,
       type: type == freezed ? _value.type : type as String,
       subtype1: subtype1 == freezed ? _value.subtype1 : subtype1 as String,
       subtype2: subtype2 == freezed ? _value.subtype2 : subtype2 as String,
@@ -410,7 +451,8 @@ class __$BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res>
 /// @nodoc
 class _$_Book implements _Book {
   const _$_Book(
-      {this.title,
+      {this.cover_pic_isbndb,
+      this.title,
       this.searchableTitle,
       this.isbn,
       this.publisher,
@@ -437,6 +479,9 @@ class _$_Book implements _Book {
       this.total_in_library,
       this.total_proposed,
       this.publisher_price,
+      this.is_liked,
+      this.is_read,
+      this.is_to_read,
       this.type,
       this.subtype1,
       this.subtype2})
@@ -446,7 +491,8 @@ class _$_Book implements _Book {
       _$_$_BookFromJson(json);
 
   @override //String languages,
-//  String cover_pic_isbndb,
+  final String cover_pic_isbndb;
+  @override
   final String title;
   @override
   final String searchableTitle;
@@ -505,6 +551,12 @@ class _$_Book implements _Book {
   @override
   final double publisher_price;
   @override
+  final bool is_liked;
+  @override
+  final bool is_read;
+  @override
+  final bool is_to_read;
+  @override
   final String type;
   @override
   final String subtype1;
@@ -513,13 +565,16 @@ class _$_Book implements _Book {
 
   @override
   String toString() {
-    return 'Book(title: $title, searchableTitle: $searchableTitle, isbn: $isbn, publisher: $publisher, publish_date: $publish_date, excerpt: $excerpt, active: $active, show_salon: $show_salon, proposed_by: $proposed_by, created_at: $created_at, createdAt: $createdAt, updatedAt: $updatedAt, pages: $pages, version: $version, id: $id, cover_pic: $cover_pic, avg_rating: $avg_rating, categories: $categories, authors: $authors, libraries: $libraries, total_liked: $total_liked, total_read: $total_read, total_to_read: $total_to_read, total_wanted: $total_wanted, total_in_library: $total_in_library, total_proposed: $total_proposed, publisher_price: $publisher_price, type: $type, subtype1: $subtype1, subtype2: $subtype2)';
+    return 'Book(cover_pic_isbndb: $cover_pic_isbndb, title: $title, searchableTitle: $searchableTitle, isbn: $isbn, publisher: $publisher, publish_date: $publish_date, excerpt: $excerpt, active: $active, show_salon: $show_salon, proposed_by: $proposed_by, created_at: $created_at, createdAt: $createdAt, updatedAt: $updatedAt, pages: $pages, version: $version, id: $id, cover_pic: $cover_pic, avg_rating: $avg_rating, categories: $categories, authors: $authors, libraries: $libraries, total_liked: $total_liked, total_read: $total_read, total_to_read: $total_to_read, total_wanted: $total_wanted, total_in_library: $total_in_library, total_proposed: $total_proposed, publisher_price: $publisher_price, is_liked: $is_liked, is_read: $is_read, is_to_read: $is_to_read, type: $type, subtype1: $subtype1, subtype2: $subtype2)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Book &&
+            (identical(other.cover_pic_isbndb, cover_pic_isbndb) ||
+                const DeepCollectionEquality()
+                    .equals(other.cover_pic_isbndb, cover_pic_isbndb)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.searchableTitle, searchableTitle) ||
@@ -584,12 +639,13 @@ class _$_Book implements _Book {
             (identical(other.total_to_read, total_to_read) ||
                 const DeepCollectionEquality()
                     .equals(other.total_to_read, total_to_read)) &&
-            (identical(other.total_wanted, total_wanted) ||
-                const DeepCollectionEquality()
-                    .equals(other.total_wanted, total_wanted)) &&
+            (identical(other.total_wanted, total_wanted) || const DeepCollectionEquality().equals(other.total_wanted, total_wanted)) &&
             (identical(other.total_in_library, total_in_library) || const DeepCollectionEquality().equals(other.total_in_library, total_in_library)) &&
             (identical(other.total_proposed, total_proposed) || const DeepCollectionEquality().equals(other.total_proposed, total_proposed)) &&
             (identical(other.publisher_price, publisher_price) || const DeepCollectionEquality().equals(other.publisher_price, publisher_price)) &&
+            (identical(other.is_liked, is_liked) || const DeepCollectionEquality().equals(other.is_liked, is_liked)) &&
+            (identical(other.is_read, is_read) || const DeepCollectionEquality().equals(other.is_read, is_read)) &&
+            (identical(other.is_to_read, is_to_read) || const DeepCollectionEquality().equals(other.is_to_read, is_to_read)) &&
             (identical(other.type, type) || const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.subtype1, subtype1) || const DeepCollectionEquality().equals(other.subtype1, subtype1)) &&
             (identical(other.subtype2, subtype2) || const DeepCollectionEquality().equals(other.subtype2, subtype2)));
@@ -598,6 +654,7 @@ class _$_Book implements _Book {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(cover_pic_isbndb) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(searchableTitle) ^
       const DeepCollectionEquality().hash(isbn) ^
@@ -625,6 +682,9 @@ class _$_Book implements _Book {
       const DeepCollectionEquality().hash(total_in_library) ^
       const DeepCollectionEquality().hash(total_proposed) ^
       const DeepCollectionEquality().hash(publisher_price) ^
+      const DeepCollectionEquality().hash(is_liked) ^
+      const DeepCollectionEquality().hash(is_read) ^
+      const DeepCollectionEquality().hash(is_to_read) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(subtype1) ^
       const DeepCollectionEquality().hash(subtype2);
@@ -642,7 +702,8 @@ class _$_Book implements _Book {
 
 abstract class _Book implements Book {
   const factory _Book(
-      {String title,
+      {String cover_pic_isbndb,
+      String title,
       String searchableTitle,
       String isbn,
       String publisher,
@@ -669,6 +730,9 @@ abstract class _Book implements Book {
       int total_in_library,
       int total_proposed,
       double publisher_price,
+      bool is_liked,
+      bool is_read,
+      bool is_to_read,
       String type,
       String subtype1,
       String subtype2}) = _$_Book;
@@ -676,7 +740,8 @@ abstract class _Book implements Book {
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
   @override //String languages,
-//  String cover_pic_isbndb,
+  String get cover_pic_isbndb;
+  @override
   String get title;
   @override
   String get searchableTitle;
@@ -733,6 +798,12 @@ abstract class _Book implements Book {
   int get total_proposed;
   @override
   double get publisher_price;
+  @override
+  bool get is_liked;
+  @override
+  bool get is_read;
+  @override
+  bool get is_to_read;
   @override
   String get type;
   @override

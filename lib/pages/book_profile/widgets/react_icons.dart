@@ -9,8 +9,14 @@ class ReactIcons extends StatefulWidget {
   final String reaction;
   final IconData icon;
   final Color tapped_icon_Color;
-  const ReactIcons(
-      {Key key, this.id, this.reaction, this.icon, this.tapped_icon_Color})
+  bool value;
+  ReactIcons(
+      {Key key,
+      this.id,
+      this.reaction,
+      this.icon,
+      this.tapped_icon_Color,
+      this.value})
       : super(key: key);
 
   @override
@@ -29,6 +35,9 @@ class _ReactIconsState extends State<ReactIcons> {
               widget.id, {
             "reaction": widget.reaction,
           }));
+          setState(() {
+            widget.value = !widget.value;
+          });
         },
         child: Container(
           height: 45,
@@ -37,7 +46,12 @@ class _ReactIconsState extends State<ReactIcons> {
               BoxDecoration(shape: BoxShape.circle, color: Color(0XFFF3F3F5)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Icon(widget.icon)],
+            children: [
+              Icon(
+                widget.icon,
+                color: widget.value ? Colors.red : Colors.black,
+              )
+            ],
           ),
         ),
       ),

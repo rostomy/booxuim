@@ -30,7 +30,8 @@ class _$LibraryTearOff {
       @nullable int status,
       @nullable bool deleted,
       @nullable bool active,
-      @nullable String showcase,
+      @nullable List<dynamic> showcase,
+      @nullable Address address,
       @nullable List<Book> books,
       @nullable List<String> phone,
       @nullable int avg_rating}) {
@@ -48,6 +49,7 @@ class _$LibraryTearOff {
       deleted: deleted,
       active: active,
       showcase: showcase,
+      address: address,
       books: books,
       phone: phone,
       avg_rating: avg_rating,
@@ -91,7 +93,9 @@ mixin _$Library {
   @nullable
   bool get active;
   @nullable
-  String get showcase; // @nullable Address address,
+  List<dynamic> get showcase;
+  @nullable
+  Address get address;
   @nullable
   List<Book> get books; // @nullable List<Rating> ratings,
   @nullable
@@ -121,10 +125,13 @@ abstract class $LibraryCopyWith<$Res> {
       @nullable int status,
       @nullable bool deleted,
       @nullable bool active,
-      @nullable String showcase,
+      @nullable List<dynamic> showcase,
+      @nullable Address address,
       @nullable List<Book> books,
       @nullable List<String> phone,
       @nullable int avg_rating});
+
+  $AddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -150,6 +157,7 @@ class _$LibraryCopyWithImpl<$Res> implements $LibraryCopyWith<$Res> {
     Object deleted = freezed,
     Object active = freezed,
     Object showcase = freezed,
+    Object address = freezed,
     Object books = freezed,
     Object phone = freezed,
     Object avg_rating = freezed,
@@ -170,11 +178,23 @@ class _$LibraryCopyWithImpl<$Res> implements $LibraryCopyWith<$Res> {
       status: status == freezed ? _value.status : status as int,
       deleted: deleted == freezed ? _value.deleted : deleted as bool,
       active: active == freezed ? _value.active : active as bool,
-      showcase: showcase == freezed ? _value.showcase : showcase as String,
+      showcase:
+          showcase == freezed ? _value.showcase : showcase as List<dynamic>,
+      address: address == freezed ? _value.address : address as Address,
       books: books == freezed ? _value.books : books as List<Book>,
       phone: phone == freezed ? _value.phone : phone as List<String>,
       avg_rating: avg_rating == freezed ? _value.avg_rating : avg_rating as int,
     ));
+  }
+
+  @override
+  $AddressCopyWith<$Res> get address {
+    if (_value.address == null) {
+      return null;
+    }
+    return $AddressCopyWith<$Res>(_value.address, (value) {
+      return _then(_value.copyWith(address: value));
+    });
   }
 }
 
@@ -196,10 +216,14 @@ abstract class _$LibraryCopyWith<$Res> implements $LibraryCopyWith<$Res> {
       @nullable int status,
       @nullable bool deleted,
       @nullable bool active,
-      @nullable String showcase,
+      @nullable List<dynamic> showcase,
+      @nullable Address address,
       @nullable List<Book> books,
       @nullable List<String> phone,
       @nullable int avg_rating});
+
+  @override
+  $AddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -226,6 +250,7 @@ class __$LibraryCopyWithImpl<$Res> extends _$LibraryCopyWithImpl<$Res>
     Object deleted = freezed,
     Object active = freezed,
     Object showcase = freezed,
+    Object address = freezed,
     Object books = freezed,
     Object phone = freezed,
     Object avg_rating = freezed,
@@ -246,7 +271,9 @@ class __$LibraryCopyWithImpl<$Res> extends _$LibraryCopyWithImpl<$Res>
       status: status == freezed ? _value.status : status as int,
       deleted: deleted == freezed ? _value.deleted : deleted as bool,
       active: active == freezed ? _value.active : active as bool,
-      showcase: showcase == freezed ? _value.showcase : showcase as String,
+      showcase:
+          showcase == freezed ? _value.showcase : showcase as List<dynamic>,
+      address: address == freezed ? _value.address : address as Address,
       books: books == freezed ? _value.books : books as List<Book>,
       phone: phone == freezed ? _value.phone : phone as List<String>,
       avg_rating: avg_rating == freezed ? _value.avg_rating : avg_rating as int,
@@ -272,6 +299,7 @@ class _$_Library implements _Library {
       @nullable this.deleted,
       @nullable this.active,
       @nullable this.showcase,
+      @nullable this.address,
       @nullable this.books,
       @nullable this.phone,
       @nullable this.avg_rating});
@@ -317,8 +345,11 @@ class _$_Library implements _Library {
   final bool active;
   @override
   @nullable
-  final String showcase;
-  @override // @nullable Address address,
+  final List<dynamic> showcase;
+  @override
+  @nullable
+  final Address address;
+  @override
   @nullable
   final List<Book> books;
   @override // @nullable List<Rating> ratings,
@@ -330,7 +361,7 @@ class _$_Library implements _Library {
 
   @override
   String toString() {
-    return 'Library(idd: $idd, profile_pic: $profile_pic, cover_pic: $cover_pic, email: $email, name: $name, company_name: $company_name, joind_at: $joind_at, about: $about, welcome: $welcome, status: $status, deleted: $deleted, active: $active, showcase: $showcase, books: $books, phone: $phone, avg_rating: $avg_rating)';
+    return 'Library(idd: $idd, profile_pic: $profile_pic, cover_pic: $cover_pic, email: $email, name: $name, company_name: $company_name, joind_at: $joind_at, about: $about, welcome: $welcome, status: $status, deleted: $deleted, active: $active, showcase: $showcase, address: $address, books: $books, phone: $phone, avg_rating: $avg_rating)';
   }
 
   @override
@@ -370,6 +401,9 @@ class _$_Library implements _Library {
             (identical(other.showcase, showcase) ||
                 const DeepCollectionEquality()
                     .equals(other.showcase, showcase)) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality()
+                    .equals(other.address, address)) &&
             (identical(other.books, books) ||
                 const DeepCollectionEquality().equals(other.books, books)) &&
             (identical(other.phone, phone) ||
@@ -395,6 +429,7 @@ class _$_Library implements _Library {
       const DeepCollectionEquality().hash(deleted) ^
       const DeepCollectionEquality().hash(active) ^
       const DeepCollectionEquality().hash(showcase) ^
+      const DeepCollectionEquality().hash(address) ^
       const DeepCollectionEquality().hash(books) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(avg_rating);
@@ -424,7 +459,8 @@ abstract class _Library implements Library {
       @nullable int status,
       @nullable bool deleted,
       @nullable bool active,
-      @nullable String showcase,
+      @nullable List<dynamic> showcase,
+      @nullable Address address,
       @nullable List<Book> books,
       @nullable List<String> phone,
       @nullable int avg_rating}) = _$_Library;
@@ -469,8 +505,11 @@ abstract class _Library implements Library {
   bool get active;
   @override
   @nullable
-  String get showcase;
-  @override // @nullable Address address,
+  List<dynamic> get showcase;
+  @override
+  @nullable
+  Address get address;
+  @override
   @nullable
   List<Book> get books;
   @override // @nullable List<Rating> ratings,

@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 part 'failures.freezed.dart';
 
-/*@freezed
+@freezed
 abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.exceedingLength({
     @required T failedValue,
@@ -32,7 +32,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidPhotoUrl({
     @required T failedValue,
   }) = InvalidPhotoUrl<T>;
-}*/
+}
 
 @freezed
 abstract class ServerFailure with _$ServerFailure {

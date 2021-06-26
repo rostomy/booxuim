@@ -50,7 +50,7 @@ class _NewsFeedState extends State<NewsFeed> {
                       body: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(l.msg),
+                          Text(l.msg.toString()),
                         ],
                       ),
                     );

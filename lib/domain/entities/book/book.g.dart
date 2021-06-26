@@ -8,6 +8,7 @@ part of 'book.dart';
 
 _$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
   return _$_Book(
+    cover_pic_isbndb: json['cover_pic_isbndb'] as String,
     title: json['title'] as String,
     searchableTitle: json['searchableTitle'] as String,
     isbn: json['isbn'] as String,
@@ -37,6 +38,9 @@ _$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
     total_in_library: json['total_in_library'] as int,
     total_proposed: json['total_proposed'] as int,
     publisher_price: (json['publisher_price'] as num)?.toDouble(),
+    is_liked: json['is_liked'] as bool,
+    is_read: json['is_read'] as bool,
+    is_to_read: json['is_to_read'] as bool,
     type: json['type'] as String,
     subtype1: json['subtype1'] as String,
     subtype2: json['subtype2'] as String,
@@ -44,6 +48,7 @@ _$_Book _$_$_BookFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$_$_BookToJson(_$_Book instance) => <String, dynamic>{
+      'cover_pic_isbndb': instance.cover_pic_isbndb,
       'title': instance.title,
       'searchableTitle': instance.searchableTitle,
       'isbn': instance.isbn,
@@ -71,6 +76,9 @@ Map<String, dynamic> _$_$_BookToJson(_$_Book instance) => <String, dynamic>{
       'total_in_library': instance.total_in_library,
       'total_proposed': instance.total_proposed,
       'publisher_price': instance.publisher_price,
+      'is_liked': instance.is_liked,
+      'is_read': instance.is_read,
+      'is_to_read': instance.is_to_read,
       'type': instance.type,
       'subtype1': instance.subtype1,
       'subtype2': instance.subtype2,

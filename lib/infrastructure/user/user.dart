@@ -30,8 +30,7 @@ class UserFacade implements IUserFacade {
       {Map<String, dynamic> body, String token}) async {
     try {
       final result = await getIt<ApiServices>().followUserr(body, token);
-      print(result.base.statusCode);
-      print(result.body);
+
       if (result.base.statusCode == 200) {
         return right(result.body);
       } else {

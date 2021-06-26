@@ -6,7 +6,9 @@ import 'package:booxuim/infrastructure/user/user.dart';
 import 'package:booxuim/injection.dart';
 import 'package:booxuim/pages/add_post/widgets/search_books.dart';
 import 'package:booxuim/pages/login.dart';
+import 'package:booxuim/pages/user_profile/moments.dart';
 import 'package:booxuim/pages/user_profile/widgets/posts.dart';
+import 'package:booxuim/widgets/button.dart';
 import 'package:booxuim/widgets/post_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,7 @@ class _ProfileUserState extends State<ProfileUser>
   TabController tabController;
   User user;
   List<PostFeed> posts = [];
+  List<String> images = [];
   bool _following;
   UserBloc _userBloc;
   @override
@@ -47,9 +50,13 @@ class _ProfileUserState extends State<ProfileUser>
                     ), (a) {
               return a.fold((l) => Text(l.msg), (r) {
                 user = User.fromJson(r["user"]);
+
                 _following = user.is_subscribed;
                 for (var i = 0; i < r["posts"].length; i++) {
                   posts.add(PostFeed.fromJson(r["posts"][i]));
+                }
+                for (var i = 0; i < r["bestMoments"].length; i++) {
+                  images.add(r["bestMoments"][i]["book"]["cover_pic"]);
                 }
                 return NestedScrollView(
                     headerSliverBuilder: (context, iss) {
@@ -58,17 +65,9 @@ class _ProfileUserState extends State<ProfileUser>
                           primary: false,
                           centerTitle: false,
                           floating: true,
+                          automaticallyImplyLeading: false,
                           pinned: true,
                           backgroundColor: Colors.white,
-                          leading: IconButton(
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
                           title: Text(
                             user.username ?? "",
                             style: TextStyle(
@@ -153,14 +152,18 @@ class _ProfileUserState extends State<ProfileUser>
                                                         Navigator.pushNamed(
                                                             context,
                                                             Routes
-                                                                .list_followers,
-                                                            arguments:
-                                                                user.idd);
+                                                                .list_followersAndSubscriptions,
+                                                            arguments: {
+                                                              "id": user.idd,
+                                                              "type":
+                                                                  "followers"
+                                                            });
                                                       },
                                                       child: Column(
                                                         children: [
                                                           Text(
-                                                            user.total_followers
+                                                            user.followers
+                                                                    .length
                                                                     .toString() ??
                                                                 "",
                                                             style: TextStyle(
@@ -282,14 +285,18 @@ class _ProfileUserState extends State<ProfileUser>
                                                         Navigator.pushNamed(
                                                             context,
                                                             Routes
-                                                                .list_subscriptions,
-                                                            arguments:
-                                                                '${user.idd}');
+                                                                .list_followersAndSubscriptions,
+                                                            arguments: {
+                                                              "id": user.idd,
+                                                              "type":
+                                                                  "subscriptions"
+                                                            });
                                                       },
                                                       child: Column(
                                                         children: [
                                                           Text(
-                                                            user.total_subscriptions
+                                                            user.subsciptions
+                                                                    .length
                                                                     .toString() ??
                                                                 "",
                                                             style: TextStyle(
@@ -373,14 +380,15 @@ class _ProfileUserState extends State<ProfileUser>
                                                             2.8,
                                                     child: Button(
                                                       text: _following
-                                                          ? "unFollow"
+                                                          ? "unfollow"
                                                           : "Follow",
                                                       callback: () {
                                                         _userBloc
                                                           ..add(UserEvent
                                                               .followUserr(
                                                             {
-                                                              'user':
+                                                              'user': user.idd,
+                                                              'user2':
                                                                   "604e99fffef81c5be95a0351",
                                                             },
                                                             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3YTkwYzJiZTNhYTViNjAzNzhlNmEiLCJ1c2VybmFtZSI6Im5hbWUyIiwiaWF0IjoxNjIyNTQ0MDE1fQ.tKn7BxIS8XN8cQjgUe4RO08A4pFKFMyTgJDsUkONAjY",
@@ -419,18 +427,15 @@ class _ProfileUserState extends State<ProfileUser>
                       Center(
                         child: Text("Hel"),
                       ),
-                      Center(
-                        child: Text("Hel"),
-                      )
+                      Moments(
+                        images: images,
+                      ),
                     ]));
               });
             });
           }, listener: (context, state) {
-            return state.followUserFailureOrSuccessOption.fold(
-                () => null,
-                (a) => {
-                      a.fold((l) => print("error is ${l.msg}"), (r) => print(r))
-                    });
+            state.followUserFailureOrSuccessOption.fold(
+                () => null, (a) => {a.fold((l) => print(l), (r) => print(r))});
           }),
         ),
       ),

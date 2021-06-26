@@ -17,6 +17,54 @@ class _$ApiServices extends ApiServices {
   final definitionType = ApiServices;
 
   @override
+  Future<Response<DetailUser>> login(LoginUser user) {
+    final $url = 'http://213.136.94.188:5000/mobile/login/';
+    final $body = user;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<DetailUser, DetailUser>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> register(Map<String, dynamic> user) {
+    final $url = 'http://213.136.94.188:5000/mobile/register/';
+    final $body = user;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<String>> updateProfile(
+      String lastName,
+      String firstName,
+      String username,
+      String phone,
+      String email,
+      String pays,
+      String wilaya,
+      String commune,
+      String bio,
+      String current_reading,
+      String headerValue) {
+    final $url = 'http://213.136.94.188:5000/mobile/users/';
+    final $headers = {'Authorization': headerValue};
+    final $body = <String, dynamic>{
+      'last_name': lastName,
+      'first_name': firstName,
+      'username': username,
+      'phone': phone,
+      'email': email,
+      'pays': pays,
+      'wilaya': wilaya,
+      'commune': commune,
+      'bio': bio,
+      'current_reading': current_reading
+    };
+    final $request =
+        Request('PUT', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<String, String>($request);
+  }
+
+  @override
   Future<Response<dynamic>> getBooks(String headerValue) {
     final $url = 'http://213.136.94.188:5000/mobile/books/vitrine';
     final $headers = {'Authorization': headerValue};
@@ -49,6 +97,14 @@ class _$ApiServices extends ApiServices {
     final $headers = {'Authorization': headerValue};
     final $request = Request('GET', $url, client.baseUrl, headers: $headers);
     return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<List<Cities>>> getCities(String headerValue) {
+    final $url = 'http://213.136.94.188:5000/mobile/settings/cities';
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<List<Cities>, Cities>($request);
   }
 
   @override
@@ -142,6 +198,22 @@ class _$ApiServices extends ApiServices {
   }
 
   @override
+  Future<Response<Map<String, dynamic>>> getSchoolBooks(String headerValue,
+      String level, String year, String title, String wilaya) {
+    final $url = 'http://213.136.94.188:5000/mobile/books/schools/';
+    final $params = <String, dynamic>{
+      'level': level,
+      'year': year,
+      'title': title,
+      'wilaya': wilaya
+    };
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
   Future<Response<Map<String, dynamic>>> getPrivateRequests(
       String headerValue) {
     final $url = 'http://213.136.94.188:5000/mobile/orders/requests';
@@ -159,6 +231,28 @@ class _$ApiServices extends ApiServices {
   }
 
   @override
+  Future<Response<Map<String, dynamic>>> deliverPanier(
+      String token, Map<String, dynamic> body) {
+    final $url = 'http://213.136.94.188:5000/mobile/orders/deliver-panier';
+    final $headers = {'Authorization': token};
+    final $body = body;
+    final $request =
+        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> pickOrder(
+      Map<String, dynamic> body, String token) {
+    final $url = 'http://213.136.94.188:5000/mobile/orders/pick-up';
+    final $headers = {'Authorization': token};
+    final $body = body;
+    final $request =
+        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
   Future<Response<List<Notifications>>> getNotifications(String token) {
     final $url = 'http://213.136.94.188:5000/mobile/users/notifications/';
     final $headers = {'Authorization': token};
@@ -167,13 +261,24 @@ class _$ApiServices extends ApiServices {
   }
 
   @override
-  Future<Response<List<String>>> searchPopBooks(String token, String text) {
+  Future<Response<List<dynamic>>> searchPopBooks(String token, String text) {
     final $url = 'http://213.136.94.188:5000/mobile/books/';
     final $params = <String, dynamic>{'title': text};
     final $headers = {'Authorization': token};
     final $request = Request('GET', $url, client.baseUrl,
         parameters: $params, headers: $headers);
-    return client.send<List<String>, String>($request);
+    return client.send<List<dynamic>, List<dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> searchBook(
+      String headerValue, String text) {
+    final $url = 'http://213.136.94.188:5000/mobile/books/';
+    final $params = <String, dynamic>{'title': text};
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
   }
 
   @override
@@ -265,9 +370,107 @@ class _$ApiServices extends ApiServices {
 
   @override
   Future<Response<Map<String, dynamic>>> findBookInLibrary(
-      String id, String token) {
-    final $url = 'http://213.136.94.188:5000/mobile/books/$id/libraries';
+      String token, String id) {
+    final $url = 'http://213.136.94.188:5000/mobile/books/$id/libraries/';
     final $headers = {'Authorization': token};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<String>> unRefrencedRequest(
+      Map<String, dynamic> body, String token) {
+    final $url = 'http://213.136.94.188:5000/mobile/orders/unfrenced';
+    final $headers = {'Authorization': token};
+    final $body = body;
+    final $request =
+        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> priceRequest(
+      Map<String, dynamic> body, String token) {
+    final $url = 'http://213.136.94.188:5000/mobile/orders/price-request';
+    final $headers = {'Authorization': token};
+    final $body = body;
+    final $request =
+        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibraries(
+      String headerValue, int page, int limit) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/';
+    final $params = <String, dynamic>{'page': page, 'limit': limit};
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibraryFollowers(
+      String headerValue, String id) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/followers';
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibrarySubscriptions(
+      String headerValue, String id) {
+    final $url =
+        'http://213.136.94.188:5000/mobile/libraries/$id/subscriptions';
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<String>> rateLibrary(
+      String id, Map<String, dynamic> rating, String token) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/rate';
+    final $headers = {'Authorization': token};
+    final $body = rating;
+    final $request =
+        Request('PUT', $url, client.baseUrl, body: $body, headers: $headers);
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<List<String>>> followLibrary(String id, String token) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/follow';
+    final $headers = {'Authorization': token};
+    final $request = Request('PUT', $url, client.baseUrl, headers: $headers);
+    return client.send<List<String>, String>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibraryTimeLine(
+      String headerValue, String id) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/timeline';
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibraryGallery(
+      String headerValue, String id) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/gallery';
+    final $headers = {'Authorization': headerValue};
+    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
+
+  @override
+  Future<Response<Map<String, dynamic>>> getLibrary(
+      String headerValue, String id) {
+    final $url = 'http://213.136.94.188:5000/mobile/libraries/$id/';
+    final $headers = {'Authorization': headerValue};
     final $request = Request('GET', $url, client.baseUrl, headers: $headers);
     return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
   }
